@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>常用层Core - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5e38\u7528\u5c42Core";
+    var mkdocs_page_input_path = "layers/core_layer.md";
+    var mkdocs_page_url = "/layers/core_layer/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_linux/">Keras安装和配置指南(Linux)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/sequential_model/">快速开始Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">常用层Core</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">常用层</a></li>
+                
+                    <li><a class="toctree-l4" href="#dense">Dense层</a></li>
+                
+                    <li><a class="toctree-l4" href="#activation">Activation层</a></li>
+                
+                    <li><a class="toctree-l4" href="#dropout">Dropout层</a></li>
+                
+                    <li><a class="toctree-l4" href="#flatten">Flatten层</a></li>
+                
+                    <li><a class="toctree-l4" href="#reshape">Reshape层</a></li>
+                
+                    <li><a class="toctree-l4" href="#permute">Permute层</a></li>
+                
+                    <li><a class="toctree-l4" href="#repeatvector">RepeatVector层</a></li>
+                
+                    <li><a class="toctree-l4" href="#merge">Merge层</a></li>
+                
+                    <li><a class="toctree-l4" href="#lambda">Lambda层</a></li>
+                
+                    <li><a class="toctree-l4" href="#activityregularizer">ActivityRegularizer层</a></li>
+                
+                    <li><a class="toctree-l4" href="#masking">Masking层</a></li>
+                
+                    <li><a class="toctree-l4" href="#highway">Highway层</a></li>
+                
+                    <li><a class="toctree-l4" href="#maxoutdense">MaxoutDense层</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../pooling_layer/">池化层Pooling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/optimizers/">优化器Optimizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/application/">预训练模型Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/datasets/">常用数据库Dataset</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>网络层 &raquo;</li>
+        
+      
+    
+    <li>常用层Core</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">常用层</h1>
+<p>常用层对应于core模块，core内部定义了一系列常用的网络层，包括全连接、激活层等</p>
+<h2 id="dense">Dense层</h2>
+<pre><code class="python">keras.layers.core.Dense(output_dim, init='glorot_uniform', activation='linear', weights=None, W_regularizer=None, b_regularizer=None, activity_regularizer=None, W_constraint=None, b_constraint=None, bias=True, input_dim=None)
+</code></pre>
+
+<p>Dense就是常用的全连接层，这里是一个使用示例：</p>
+<pre><code class="python"># as first layer in a sequential model:
+model = Sequential()
+model.add(Dense(32, input_dim=16))
+# now the model will take as input arrays of shape (*, 16)
+# and output arrays of shape (*, 32)
+
+# this is equivalent to the above:
+model = Sequential()
+model.add(Dense(32, input_shape=(16,)))
+
+# after the first layer, you don't need to specify
+# the size of the input anymore:
+model.add(Dense(32))
+</code></pre>
+
+<h3 id="_2">参数：</h3>
+<ul>
+<li>
+<p>output_dim：大于0的整数，代表该层的输出维度。模型中非首层的全连接层其输入维度可以自动推断，因此非首层的全连接定义时不需要指定输入维度。</p>
+</li>
+<li>
+<p>init：初始化方法，为预定义初始化方法名的字符串，或用于初始化权重的Theano函数。该参数仅在不传递<code>weights</code>参数时才有意义。</p>
+</li>
+<li>
+<p>activation：激活函数，为预定义的激活函数名（参考<a href="../../other/activations"><font color='#FF0000'>激活函数</font></a>），或逐元素（element-wise）的Theano函数。如果不指定该参数，将不会使用任何激活函数（即使用线性激活函数：a(x)=x）</p>
+</li>
+<li>
+<p>weights：权值，为numpy array的list。该list应含有一个形如（input_dim,output_dim）的权重矩阵和一个形如(output_dim,)的偏置向量。</p>
+</li>
+<li>
+<p>W_regularizer：施加在权重上的正则项，为<a href="../../other/regularizers"><font color='FF0000'>WeightRegularizer</font></a>对象</p>
+</li>
+<li>
+<p>b_regularizer：施加在偏置向量上的正则项，为<a href="../../other/regularizers"><font color='FF0000'>WeightRegularizer</font></a>对象</p>
+</li>
+<li>
+<p>activity_regularizer：施加在输出上的正则项，为<a href="../../other/regularizers"><font color='FF0000'>ActivityRegularizer</font></a>对象</p>
+</li>
+<li>
+<p>W_constraints：施加在权重上的约束项，为<a href="../../other/constraints"><font color='FF0000'>Constraints</font></a>对象</p>
+</li>
+<li>
+<p>b_constraints：施加在偏置上的约束项，为<a href="../../other/constraints"><font color='FF0000'>Constraints</font></a>对象</p>
+</li>
+<li>
+<p>bias：布尔值，是否包含偏置向量（即层对输入做线性变换还是仿射变换）</p>
+</li>
+<li>
+<p>input_dim：整数，输入数据的维度。当Dense层作为网络的第一层时，必须指定该参数或<code>input_shape</code>参数。</p>
+</li>
+</ul>
+<h3 id="_3">输入</h3>
+<p>形如(nb_samples, ..., input_dim)的nD张量，最常见的情况为(nb_samples, input_dim)的2D张量</p>
+<h3 id="_4">输出</h3>
+<p>形如(nb_samples, ..., output_dim)的nD张量，最常见的情况为(nb_samples, output_dim)的2D张量</p>
+<hr />
+<p><a name='activation'>
+<font color='#404040'></p>
+<h2 id="activation">Activation层</h2>
+<p></font></a></p>
+<pre><code class="python">keras.layers.core.Activation(activation)
+</code></pre>
+
+<p>激活层对一个层的输出施加激活函数</p>
+<h3 id="_5">参数</h3>
+<ul>
+<li>activation：将要使用的激活函数，为预定义激活函数名或一个Tensorflow/Theano的函数。参考<a href="../../other/activations"><font color='#FF0000'>激活函数</font></a></li>
+</ul>
+<h3 id="shape">输入shape</h3>
+<p>任意，当使用激活层作为第一层时，要指定<code>input_shape</code></p>
+<h3 id="shape_1">输出shape</h3>
+<p>与输入shape相同</p>
+<hr />
+<p></a name='dropout'>
+<font color='#404040'></p>
+<h2 id="dropout">Dropout层</h2>
+<p></font></a></p>
+<pre><code class="python">keras.layers.core.Dropout(p)
+</code></pre>
+
+<p>为输入数据施加Dropout。Dropout将在训练过程中每次更新参数时随机断开一定百分比（p）的输入神经元连接，Dropout层用于防止过拟合。</p>
+<h3 id="_6">参数</h3>
+<ul>
+<li>p：0~1的浮点数，控制需要断开的链接的比例</li>
+</ul>
+<h3 id="_7">参考文献</h3>
+<ul>
+<li><a href="http://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf"><font color='FF0000'>Dropout: A Simple Way to Prevent Neural Networks from Overfitting</font></a></li>
+</ul>
+<hr />
+<h2 id="flatten">Flatten层</h2>
+<pre><code class="python">keras.layers.core.Flatten()
+</code></pre>
+
+<p>Flatten层用来将输入“压平”，即把多维的输入一维化，常用在从卷积层到全连接层的过渡。Flatten不影响batch的大小。</p>
+<h3 id="_8">例子</h3>
+<pre><code class="python">model = Sequential()
+model.add(Convolution2D(64, 3, 3, border_mode='same', input_shape=(3, 32, 32)))
+# now: model.output_shape == (None, 64, 32, 32)
+
+model.add(Flatten())
+# now: model.output_shape == (None, 65536)
+</code></pre>
+
+<hr />
+<h2 id="reshape">Reshape层</h2>
+<pre><code class="python">keras.layers.core.Reshape(target_shape)
+</code></pre>
+
+<p>Reshape层用来将输入shape转换为特定的shape</p>
+<h3 id="_9">参数</h3>
+<ul>
+<li>target_shape：目标shape，为整数的tuple，不包含样本数目的维度（batch大小）</li>
+</ul>
+<h3 id="shape_2">输入shape</h3>
+<p>任意，但输入的shape必须固定。当使用该层为模型首层时，需要指定<code>input_shape</code>参数</p>
+<h3 id="shape_3">输出shape</h3>
+<p><code>(batch_size,)+target_shape</code></p>
+<h3 id="_10">例子</h3>
+<pre><code class="python"># as first layer in a Sequential model
+model = Sequential()
+model.add(Reshape((3, 4), input_shape=(12,)))
+# now: model.output_shape == (None, 3, 4)
+# note: `None` is the batch dimension
+
+# as intermediate layer in a Sequential model
+model.add(Reshape((6, 2)))
+# now: model.output_shape == (None, 6, 2)
+</code></pre>
+
+<hr />
+<h2 id="permute">Permute层</h2>
+<pre><code class="python">keras.layers.core.Permute(dims)
+</code></pre>
+
+<p>Permute层将输入的维度按照给定模式进行重排，例如，当需要将RNN和CNN网络连接时，可能会用到该层。</p>
+<h3 id="_11">参数</h3>
+<ul>
+<li>dims：整数tuple，指定重排的模式，不包含样本数的维度。重拍模式的下标从1开始。例如（2，1）代表将输入的第二个维度重拍到输出的第一个维度，而将输入的第一个维度重排到第二个维度</li>
+</ul>
+<h3 id="_12">例子</h3>
+<pre><code class="python">model = Sequential()
+model.add(Permute((2, 1), input_shape=(10, 64)))
+# now: model.output_shape == (None, 64, 10)
+# note: `None` is the batch dimension
+</code></pre>
+
+<h3 id="shape_4">输入shape</h3>
+<p>任意，当使用激活层作为第一层时，要指定<code>input_shape</code></p>
+<h3 id="shape_5">输出shape</h3>
+<p>与输入相同，但是其维度按照指定的模式重新排列</p>
+<hr />
+<h2 id="repeatvector">RepeatVector层</h2>
+<pre><code class="python">keras.layers.core.RepeatVector(n)
+</code></pre>
+
+<p>RepeatVector层将输入重复n次</p>
+<h3 id="_13">参数</h3>
+<ul>
+<li>n：整数，重复的次数</li>
+</ul>
+<h3 id="shape_6">输入shape</h3>
+<p>形如（nb_samples, features）的2D张量</p>
+<h3 id="shape_7">输出shape</h3>
+<p>形如（nb_samples, n, features）的3D张量</p>
+<h3 id="_14">例子</h3>
+<pre><code class="python">model = Sequential()
+model.add(Dense(32, input_dim=32))
+# now: model.output_shape == (None, 32)
+# note: `None` is the batch dimension
+
+model.add(RepeatVector(3))
+# now: model.output_shape == (None, 3, 32)
+</code></pre>
+
+<hr />
+<h2 id="merge">Merge层</h2>
+<pre><code class="python">keras.engine.topology.Merge(layers=None, mode='sum', concat_axis=-1, dot_axes=-1, output_shape=None, node_indices=None, tensor_indices=None, name=None)
+</code></pre>
+
+<p>Merge层根据给定的模式，将一个张量列表中的若干张量合并为一个单独的张量</p>
+<h3 id="_15">参数</h3>
+<ul>
+<li>layers：该参数为Keras张量的列表，或Keras层对象的列表。该列表的元素数目必须大于1。</li>
+<li>
+<p>mode：合并模式，为预定义合并模式名的字符串或lambda函数或普通函数，如果为lambda函数或普通函数，则该函数必须接受一个张量的list作为输入，并返回一个张量。如果为字符串，则必须是下列值之一：</p>
+<ul>
+<li>“sum”，“mul”，“concat”，“ave”，“cos”，“dot”</li>
+</ul>
+</li>
+<li>
+<p>concat_axis：整数，当<code>mode=concat</code>时指定需要串联的轴</p>
+</li>
+<li>
+<p>dot_axes：整数或整数tuple，当<code>mode=dot</code>时，指定要消去的轴</p>
+</li>
+<li>
+<p>output_shape：整数tuple或lambda函数/普通函数（当mode为函数时）。如果output_shape是函数时，该函数的输入值应为一一对应于输入shape的list，并返回输出张量的shape。</p>
+</li>
+<li>
+<p>node_indices：可选，为整数list，如果有些层具有多个输出节点（node）的话，该参数可以指定需要merge的那些节点的下标。如果没有提供，该参数的默认值为全0向量，即合并输入层0号节点的输出值。</p>
+</li>
+<li>
+<p>tensor_indices：可选，为整数list，如果有些层返回多个输出张量的话，该参数用以指定需要合并的那些张量。</p>
+</li>
+</ul>
+<h3 id="_16">例子</h3>
+<pre><code class="python">model1 = Sequential()
+model1.add(Dense(32))
+
+model2 = Sequential()
+model2.add(Dense(32))
+
+merged_model = Sequential()
+merged_model.add(Merge([model1, model2], mode='concat', concat_axis=1)
+- ____TODO__: would this actually work? it needs to.__
+
+# achieve this with get_source_inputs in Sequential.
+</code></pre>
+
+<hr />
+<h2 id="lambda">Lambda层</h2>
+<pre><code class="python">keras.layers.core.Lambda(function, output_shape=None, arguments={})
+</code></pre>
+
+<p>本函数用以对上一层的输出施以任何Theano/TensorFlow表达式</p>
+<h3 id="_17">参数</h3>
+<ul>
+<li>
+<p>function：要实现的函数，该函数仅接受一个变量，即上一层的输出</p>
+</li>
+<li>
+<p>output_shape：函数应该返回的值的shape，可以是一个tuple，也可以是一个根据输入shape计算输出shape的函数</p>
+</li>
+<li>
+<p>arguments：可选，字典，用来记录向函数中传递的其他关键字参数</p>
+</li>
+</ul>
+<h3 id="_18">例子</h3>
+<pre><code class="python"># add a x -&gt; x^2 layer
+model.add(Lambda(lambda x: x ** 2))
+</code></pre>
+
+<pre><code class="python"># add a layer that returns the concatenation
+# of the positive part of the input and
+# the opposite of the negative part
+
+def antirectifier(x):
+    x -= K.mean(x, axis=1, keepdims=True)
+    x = K.l2_normalize(x, axis=1)
+    pos = K.relu(x)
+    neg = K.relu(-x)
+    return K.concatenate([pos, neg], axis=1)
+
+def antirectifier_output_shape(input_shape):
+    shape = list(input_shape)
+    assert len(shape) == 2  # only valid for 2D tensors
+    shape[-1] *= 2
+    return tuple(shape)
+
+model.add(Lambda(antirectifier, output_shape=antirectifier_output_shape))
+</code></pre>
+
+<h3 id="shape_8">输入shape</h3>
+<p>任意，当使用该层作为第一层时，要指定<code>input_shape</code></p>
+<h3 id="shape_9">输出shape</h3>
+<p>由<code>output_shape</code>参数指定的输出shape</p>
+<hr />
+<h2 id="activityregularizer">ActivityRegularizer层</h2>
+<pre><code class="python">keras.layers.core.ActivityRegularization(l1=0.0, l2=0.0)
+</code></pre>
+
+<p>经过本层的数据不会有任何变化，但会基于其激活值更新损失函数值</p>
+<h3 id="_19">参数</h3>
+<ul>
+<li>
+<p>l1：1范数正则因子（正浮点数）</p>
+</li>
+<li>
+<p>l2：2范数正则因子（正浮点数）</p>
+</li>
+</ul>
+<h3 id="shape_10">输入shape</h3>
+<p>任意，当使用该层作为第一层时，要指定<code>input_shape</code></p>
+<h3 id="shape_11">输出shape</h3>
+<p>与输入shape相同</p>
+<hr />
+<h2 id="masking">Masking层</h2>
+<pre><code class="python">keras.layers.core.Masking(mask_value=0.0)
+</code></pre>
+
+<p>使用给定的值对输入的序列信号进行“屏蔽”，用以定位需要跳过的时间步</p>
+<p>对于输入张量的时间步，即输入张量的第1维度（维度从0开始算，见例子），如果输入张量在该时间步上都等于<code>mask_value</code>，则该时间步将在模型接下来的所有层（只要支持masking）被跳过（屏蔽）。</p>
+<p>如果模型接下来的一些层不支持masking，却接受到masking过的数据，则抛出异常。</p>
+<h3 id="_20">例子</h3>
+<p>考虑输入数据<code>x</code>是一个形如(samples,timesteps,features)的张量，现将其送入LSTM层。因为你缺少时间步为3和5的信号，所以你希望将其掩盖。这时候应该：</p>
+<ul>
+<li>
+<p>赋值<code>x[:,3,:] = 0.</code>，<code>x[:,5,:] = 0.</code></p>
+</li>
+<li>
+<p>在LSTM层之前插入<code>mask_value=0.</code>的<code>Masking</code>层</p>
+</li>
+</ul>
+<pre><code class="python">model = Sequential()
+model.add(Masking(mask_value=0., input_shape=(timesteps, features)))
+model.add(LSTM(32))
+</code></pre>
+
+<hr />
+<h2 id="highway">Highway层</h2>
+<pre><code class="python">keras.layers.core.Highway(init='glorot_uniform', transform_bias=-2, activation='linear', weights=None, W_regularizer=None, b_regularizer=None, activity_regularizer=None, W_constraint=None, b_constraint=None, bias=True, input_dim=None)
+</code></pre>
+
+<p>Highway层建立全连接的Highway网络，这是LSTM在前馈神经网络中的推广</p>
+<h3 id="_21">参数：</h3>
+<ul>
+<li>
+<p>output_dim：大于0的整数，代表该层的输出维度。模型中非首层的全连接层其输入维度可以自动推断，因此非首层的全连接定义时不需要指定输入维度。</p>
+</li>
+<li>
+<p>init：初始化方法，为预定义初始化方法名的字符串，或用于初始化权重的Theano函数。该参数仅在不传递<code>weights</code>参数时有意义。</p>
+</li>
+<li>
+<p>activation：激活函数，为预定义的激活函数名（参考<a href="../../other/activations"><font color='#FF0000'>激活函数</font></a>），或逐元素（element-wise）的Theano函数。如果不指定该参数，将不会使用任何激活函数（即使用线性激活函数：a(x)=x）</p>
+</li>
+<li>
+<p>weights：权值，为numpy array的list。该list应含有一个形如（input_dim,output_dim）的权重矩阵和一个形如(output_dim,)的偏置向量。</p>
+</li>
+<li>
+<p>W_regularizer：施加在权重上的正则项，为<a href="../../other/regularizers"><font color='FF0000'>WeightRegularizer</font></a>对象</p>
+</li>
+<li>
+<p>b_regularizer：施加在偏置向量上的正则项，为<a href="../../other/regularizers"><font color='FF0000'>WeightRegularizer</font></a>对象</p>
+</li>
+<li>
+<p>activity_regularizer：施加在输出上的正则项，为<a href="../../other/regularizers"><font color='FF0000'>ActivityRegularizer</font></a>对象</p>
+</li>
+<li>
+<p>W_constraints：施加在权重上的约束项，为<a href="../../other/constraints"><font color='FF0000'>Constraints</font></a>对象</p>
+</li>
+<li>
+<p>b_constraints：施加在偏置上的约束项，为<a href="../../other/constraints"><font color='FF0000'>Constraints</font></a>对象</p>
+</li>
+<li>
+<p>bias：布尔值，是否包含偏置向量（即层对输入做线性变换还是仿射变换）</p>
+</li>
+<li>
+<p>input_dim：整数，输入数据的维度。当该层作为网络的第一层时，必须指定该参数或<code>input_shape</code>参数。</p>
+</li>
+<li>
+<p>transform_bias：用以初始化传递参数，默认为-2（请参考文献理解本参数的含义）</p>
+</li>
+</ul>
+<h3 id="shape_12">输入shape</h3>
+<p>形如（nb_samples, input_dim）的2D张量</p>
+<h3 id="shape_13">输出shape</h3>
+<p>形如（nb_samples, output_dim）的2D张量</p>
+<h3 id="_22">参考文献</h3>
+<ul>
+<li><a href="http://arxiv.org/pdf/1505.00387v2.pdf"><font color='FF0000'>Highway Networks</font></a></li>
+</ul>
+<hr />
+<h2 id="maxoutdense">MaxoutDense层</h2>
+<p>全连接的Maxout层</p>
+<p><code>MaxoutDense</code>层以<code>nb_features</code>个<code>Dense(input_dim,output_dim)</code>线性层的输出的最大值为输出。<code>MaxoutDense</code>可对输入学习出一个凸的、分段线性的激活函数。</p>
+<h3 id="_23">参数</h3>
+<ul>
+<li>nb_features：内部使用的全连接层的数目</li>
+</ul>
+<h3 id="shape_14">输入shape</h3>
+<p>形如（nb_samples, input_dim）的2D张量</p>
+<h3 id="shape_15">输出shape</h3>
+<p>形如（nb_samples, output_dim）的2D张量</p>
+<h3 id="_24">参考文献</h3>
+<ul>
+<li><a href="http://arxiv.org/pdf/1302.4389.pdf"><font color='FF0000'>Maxout Networks</font></a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../convolutional_layer/" class="btn btn-neutral float-right" title="卷积层Convolutional">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../about_layer/" class="btn btn-neutral" title="关于Keras层"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../about_layer/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../convolutional_layer/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

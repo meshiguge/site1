@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>优化器Optimizer - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4f18\u5316\u5668Optimizer";
+    var mkdocs_page_input_path = "other/optimizers.md";
+    var mkdocs_page_url = "/other/optimizers/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_linux/">Keras安装和配置指南(Linux)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/sequential_model/">快速开始Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/core_layer/">常用层Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/pooling_layer/">池化层Pooling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">优化器Optimizer</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#optimizers">优化器optimizers</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">所有优化器都可用的参数</a></li>
+                
+                    <li><a class="toctree-l4" href="#sgd">SGD</a></li>
+                
+                    <li><a class="toctree-l4" href="#rmsprop">RMSprop</a></li>
+                
+                    <li><a class="toctree-l4" href="#adagrad">Adagrad</a></li>
+                
+                    <li><a class="toctree-l4" href="#adadelta">Adadelta</a></li>
+                
+                    <li><a class="toctree-l4" href="#adam">Adam</a></li>
+                
+                    <li><a class="toctree-l4" href="#adamax">Adamax</a></li>
+                
+                    <li><a class="toctree-l4" href="#nadam">Nadam</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../application/">预训练模型Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../datasets/">常用数据库Dataset</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>其他重要模块 &raquo;</li>
+        
+      
+    
+    <li>优化器Optimizer</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="optimizers">优化器optimizers</h1>
+<p>优化器是编译Keras模型必要的两个参数之一</p>
+<pre><code class="python">model = Sequential()
+model.add(Dense(64, init='uniform', input_dim=10))
+model.add(Activation('tanh'))
+model.add(Activation('softmax'))
+
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='mean_squared_error', optimizer=sgd)
+</code></pre>
+
+<p>可以在调用<code>model.compile()</code>之前初始化一个优化器对象，然后传入该函数（如上所示），也可以在调用<code>model.compile()</code>时传递一个预定义优化器名。在后者情形下，优化器的参数将使用默认值。</p>
+<pre><code class="python"># pass optimizer by name: default parameters will be used
+model.compile(loss='mean_squared_error', optimizer='sgd')
+</code></pre>
+
+<h2 id="_1">所有优化器都可用的参数</h2>
+<p>参数<code>clipnorm</code>和<code>clipvalue</code>是所有优化器都可以使用的参数,用于对梯度进行裁剪.示例如下:</p>
+<pre><code class="python"># all parameter gradients will be clipped to
+# a maximum norm of 1.
+sgd = SGD(lr=0.01, clipnorm=1.)
+</code></pre>
+
+<pre><code class="python"># all parameter gradients will be clipped to
+# a maximum value of 0.5 and
+# a minimum value of -0.5.
+sgd = SGD(lr=0.01, clipvalue=0.5)
+</code></pre>
+
+<h2 id="sgd">SGD</h2>
+<pre><code class="python">keras.optimizers.SGD(lr=0.01, momentum=0.0, decay=0.0, nesterov=False)
+</code></pre>
+
+<p>随机梯度下降法，支持动量参数，支持学习衰减率，支持Nesterov动量</p>
+<h3 id="_2">参数</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>momentum：大于0的浮点数，动量参数</p>
+</li>
+<li>
+<p>decay：大于0的浮点数，每次更新后的学习率衰减值</p>
+</li>
+<li>
+<p>nesterov：布尔值，确定是否使用Nesterov动量</p>
+</li>
+</ul>
+<hr />
+<h2 id="rmsprop">RMSprop</h2>
+<pre><code class="python">keras.optimizers.RMSprop(lr=0.001, rho=0.9, epsilon=1e-06)
+</code></pre>
+
+<p>除学习率可调整外，建议保持优化器的其他默认参数不变</p>
+<p>该优化器通常是面对递归神经网络时的一个良好选择</p>
+<h3 id="_3">参数</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>rho：大于0的浮点数</p>
+</li>
+<li>
+<p>epsilon：大于0的小浮点数，防止除0错误</p>
+</li>
+</ul>
+<hr />
+<h2 id="adagrad">Adagrad</h2>
+<pre><code class="python">keras.optimizers.Adagrad(lr=0.01, epsilon=1e-06)
+</code></pre>
+
+<p>建议保持优化器的默认参数不变</p>
+<h3 id="adagrad_1">Adagrad</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>epsilon：大于0的小浮点数，防止除0错误</p>
+</li>
+</ul>
+<hr />
+<h2 id="adadelta">Adadelta</h2>
+<pre><code class="python">keras.optimizers.Adadelta(lr=1.0, rho=0.95, epsilon=1e-06)
+</code></pre>
+
+<p>建议保持优化器的默认参数不变</p>
+<h3 id="_4">参数</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>rho：大于0的浮点数</p>
+</li>
+<li>
+<p>epsilon：大于0的小浮点数，防止除0错误</p>
+</li>
+</ul>
+<h3 id="_5">参考文献</h3>
+<hr />
+<ul>
+<li><a href="http://arxiv.org/abs/1212.5701"><font color='#FF0000'>Adadelta - an adaptive learning rate method</font></a></li>
+</ul>
+<h2 id="adam">Adam</h2>
+<pre><code class="python">keras.optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
+</code></pre>
+
+<p>该优化器的默认值来源于参考文献</p>
+<h3 id="_6">参数</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>beta_1/beta_2：浮点数， 0&lt;beta&lt;1，通常很接近1</p>
+</li>
+<li>
+<p>epsilon：大于0的小浮点数，防止除0错误</p>
+</li>
+</ul>
+<h3 id="_7">参考文献</h3>
+<ul>
+<li><a href="http://arxiv.org/abs/1412.6980v8"><font color='#FF0000'>Adam - A Method for Stochastic Optimization</font></a></li>
+</ul>
+<hr />
+<h2 id="adamax">Adamax</h2>
+<pre><code class="python">keras.optimizers.Adamax(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
+</code></pre>
+
+<p>Adamax优化器来自于Adam的论文的Section7，该方法是基于无穷范数的Adam方法的变体。</p>
+<p>默认参数由论文提供</p>
+<h3 id="_8">参数</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>beta_1/beta_2：浮点数， 0&lt;beta&lt;1，通常很接近1</p>
+</li>
+<li>
+<p>epsilon：大于0的小浮点数，防止除0错误</p>
+</li>
+</ul>
+<h3 id="_9">参考文献</h3>
+<ul>
+<li><a href="http://arxiv.org/abs/1412.6980v8"><font color='#FF0000'>Adam - A Method for Stochastic Optimization</font></a></li>
+</ul>
+<hr />
+<h2 id="nadam">Nadam</h2>
+<pre><code class="python">keras.optimizers.Nadam(lr=0.002, beta_1=0.9, beta_2=0.999, epsilon=1e-08, schedule_decay=0.004)
+</code></pre>
+
+<p>Nesterov Adam optimizer: Adam本质上像是带有动量项的RMSprop，Nadam就是带有Nesterov 动量的Adam RMSprop</p>
+<p>默认参数来自于论文，推荐不要对默认参数进行更改。</p>
+<h3 id="_10">参数</h3>
+<ul>
+<li>
+<p>lr：大于0的浮点数，学习率</p>
+</li>
+<li>
+<p>beta_1/beta_2：浮点数， 0&lt;beta&lt;1，通常很接近1</p>
+</li>
+<li>
+<p>epsilon：大于0的小浮点数，防止除0错误</p>
+</li>
+</ul>
+<h3 id="_11">参考文献</h3>
+<ul>
+<li>
+<p><a href="http://cs229.stanford.edu/proj2015/054_report.pdf"><font color='#FF0000'>Nadam report</font></a></p>
+</li>
+<li>
+<p><a href="http://www.cs.toronto.edu/~fritz/absps/momentum.pdf"><font color='#FF0000'>On the importance of initialization and momentum in deep learning</font></a></p>
+</li>
+</ul>
+<p>【Tips】很快（过两天）我们会将各种优化器的算法及特点总结一下，敬请关注</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../activations/" class="btn btn-neutral float-right" title="激活函数Activation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../objectives/" class="btn btn-neutral" title="目标函数Objective"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../objectives/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../activations/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>预训练模型Application - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u9884\u8bad\u7ec3\u6a21\u578bApplication";
+    var mkdocs_page_input_path = "other/application.md";
+    var mkdocs_page_url = "/other/application/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_linux/">Keras安装和配置指南(Linux)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/sequential_model/">快速开始Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/core_layer/">常用层Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/pooling_layer/">池化层Pooling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../optimizers/">优化器Optimizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">预训练模型Application</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#application">Application应用</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">可用的模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">图片分类模型的示例</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">模型文档</a></li>
+                
+                    <li><a class="toctree-l4" href="#xception">Xception模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#vgg16_1">VGG16模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#vgg19_1">VGG19模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#resnet50">ResNet50模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#inceptionv3">InceptionV3模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#musictaggercrnn">MusicTaggerCRNN模型</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../datasets/">常用数据库Dataset</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>其他重要模块 &raquo;</li>
+        
+      
+    
+    <li>预训练模型Application</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="application">Application应用</h1>
+<p>Kera的应用模块Application提供了带有预训练权重的Keras模型，这些模型可以用来进行预测、特征提取和finetune</p>
+<p>模型的预训练权重将下载到<code>~/.keras/models/</code>并在载入模型时自动载入</p>
+<h2 id="_1">可用的模型</h2>
+<p>应用于图像分类的模型,权重训练自ImageNet：
+<em> <a href="#xception">Xception</a>
+</em> <a href="#vgg16">VGG16</a>
+<em> <a href="#vgg19">VGG19</a>
+</em> <a href="#resnet50">ResNet50</a>
+* <a href="#inceptionv3">InceptionV3</a></p>
+<p>所有的这些模型(除了Xception)都兼容Theano和Tensorflow，并会自动基于<code>~/.keras/keras.json</code>的Keras的图像维度进行自动设置。例如，如果你设置<code>image_dim_ordering=tf</code>，则加载的模型将按照TensorFlow的维度顺序来构造，即“Width-Height-Depth”的顺序</p>
+<p>应用于音乐自动标签(以Mel-spectrograms为输入)</p>
+<ul>
+<li><a href="#musictagger">MusicTaggerCRNN</a></li>
+</ul>
+<hr />
+<h2 id="_2">图片分类模型的示例</h2>
+<h3 id="resnet50imagenet">利用ResNet50网络进行ImageNet分类</h3>
+<pre><code class="python">from keras.applications.resnet50 import ResNet50
+from keras.preprocessing import image
+from keras.applications.resnet50 import preprocess_input, decode_predictions
+import numpy as np
+
+model = ResNet50(weights='imagenet')
+
+img_path = 'elephant.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+preds = model.predict(x)
+# decode the results into a list of tuples (class, description, probability)
+# (one such list for each sample in the batch)
+print('Predicted:', decode_predictions(preds, top=3)[0])
+# Predicted: [(u'n02504013', u'Indian_elephant', 0.82658225), (u'n01871265', u'tusker', 0.1122357), (u'n02504458', u'African_elephant', 0.061040461)]
+</code></pre>
+
+<h3 id="vgg16">利用VGG16提取特征</h3>
+<pre><code class="python">from keras.applications.vgg16 import VGG16
+from keras.preprocessing import image
+from keras.applications.vgg16 import preprocess_input
+import numpy as np
+
+model = VGG16(weights='imagenet', include_top=False)
+
+img_path = 'elephant.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+features = model.predict(x)
+</code></pre>
+
+<h3 id="vgg19">从VGG19的任意中间层中抽取特征</h3>
+<pre><code class="python">from keras.applications.vgg19 import VGG19
+from keras.preprocessing import image
+from keras.applications.vgg19 import preprocess_input
+from keras.models import Model
+import numpy as np
+
+base_model = VGG19(weights='imagenet')
+model = Model(input=base_model.input, output=base_model.get_layer('block4_pool').output)
+
+img_path = 'elephant.jpg'
+img = image.load_img(img_path, target_size=(224, 224))
+x = image.img_to_array(img)
+x = np.expand_dims(x, axis=0)
+x = preprocess_input(x)
+
+block4_pool_features = model.predict(x)
+</code></pre>
+
+<h3 id="finetune-inceptionv3">利用新数据集finetune InceptionV3</h3>
+<pre><code class="python">from keras.applications.inception_v3 import InceptionV3
+from keras.preprocessing import image
+from keras.models import Model
+from keras.layers import Dense, GlobalAveragePooling2D
+from keras import backend as K
+
+# create the base pre-trained model
+base_model = InceptionV3(weights='imagenet', include_top=False)
+
+# add a global spatial average pooling layer
+x = base_model.output
+x = GlobalAveragePooling2D()(x)
+# let's add a fully-connected layer
+x = Dense(1024, activation='relu')(x)
+# and a logistic layer -- let's say we have 200 classes
+predictions = Dense(200, activation='softmax')(x)
+
+# this is the model we will train
+model = Model(input=base_model.input, output=predictions)
+
+# first: train only the top layers (which were randomly initialized)
+# i.e. freeze all convolutional InceptionV3 layers
+for layer in base_model.layers:
+    layer.trainable = False
+
+# compile the model (should be done *after* setting layers to non-trainable)
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
+
+# train the model on the new data for a few epochs
+model.fit_generator(...)
+
+# at this point, the top layers are well trained and we can start fine-tuning
+# convolutional layers from inception V3. We will freeze the bottom N layers
+# and train the remaining top layers.
+
+# let's visualize layer names and layer indices to see how many layers
+# we should freeze:
+for i, layer in enumerate(base_model.layers):
+   print(i, layer.name)
+
+# we chose to train the top 2 inception blocks, i.e. we will freeze
+# the first 172 layers and unfreeze the rest:
+for layer in model.layers[:172]:
+   layer.trainable = False
+for layer in model.layers[172:]:
+   layer.trainable = True
+
+# we need to recompile the model for these modifications to take effect
+# we use SGD with a low learning rate
+from keras.optimizers import SGD
+model.compile(optimizer=SGD(lr=0.0001, momentum=0.9), loss='categorical_crossentropy')
+
+# we train our model again (this time fine-tuning the top 2 inception blocks
+# alongside the top Dense layers
+model.fit_generator(...)
+</code></pre>
+
+<h3 id="tensorinceptionv3">在定制的输入tensor上构建InceptionV3</h3>
+<pre><code class="python">from keras.applications.inception_v3 import InceptionV3
+from keras.layers import Input
+
+# this could also be the output a different Keras model or layer
+input_tensor = Input(shape=(224, 224, 3))  # this assumes K.image_dim_ordering() == 'tf'
+
+model = InceptionV3(input_tensor=input_tensor, weights='imagenet', include_top=True)
+</code></pre>
+
+<hr />
+<h2 id="_3">模型文档</h2>
+<ul>
+<li><a href="#xception">Xception</a></li>
+<li><a href="#vgg16">VGG16</a></li>
+<li><a href="#vgg19">VGG19</a></li>
+<li><a href="#resnet50">ResNet50</a></li>
+<li><a href="#inceptionv3">InceptionV3</a></li>
+<li><a href="#music">MusicTaggerCRNN</a></li>
+</ul>
+<hr />
+<p><a name='xception'>
+<font color='#404040'></p>
+<h2 id="xception">Xception模型</h2>
+<p></font>
+</a></p>
+<pre><code class="python">keras.applications.xception.Xception(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, classes=1000)
+</code></pre>
+
+<p>Xception V1 模型, 权重由ImageNet训练而言</p>
+<p>在ImageNet上,该模型取得了验证集top1 0.790和top5 0.945的正确率</p>
+<p>注意,该模型目前仅能以TensorFlow为后端使用,由于它依赖于"SeparableConvolution"层,目前该模型只支持tf的维度顺序(width, height, channels)</p>
+<p>默认输入图片大小为299x299</p>
+<h3 id="_4">参数</h3>
+<ul>
+<li>include_top：是否保留顶层的3个全连接网络</li>
+<li>weights：None代表随机初始化，即不加载预训练权重。'imagenet'代表加载预训练权重</li>
+<li>input_tensor：可填入Keras tensor作为模型的图像输出tensor</li>
+<li>input_shape：可选，仅当<code>include_top=False</code>有效，应为长为3的tuple，指明输入图片的shape，图片的宽高必须大于71，如(150,150,3)</li>
+<li>classes：可选，图片分类的类别数，仅当<code>include_top=True</code>并且不加载预训练权重时可用。</li>
+</ul>
+<h3 id="_5">返回值</h3>
+<p>Keras 模型对象</p>
+<h3 id="_6">参考文献</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1610.02357"><font color='#FF0000'>Xception: Deep Learning with Depthwise Separable Convolutions</font></a></li>
+</ul>
+<h3 id="license">License</h3>
+<p>预训练权重由我们自己训练而来，基于MIT license发布</p>
+<hr />
+<p><a name='vgg16'>
+<font color='#404040'></p>
+<h2 id="vgg16_1">VGG16模型</h2>
+<p></font>
+</a></p>
+<pre><code class="python">keras.applications.vgg16.VGG16(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, classes=1000)
+</code></pre>
+
+<p>VGG16模型,权重由ImageNet训练而来</p>
+<p>该模型再Theano和TensorFlow后端均可使用,并接受th和tf两种输入维度顺序</p>
+<p>模型的默认输入尺寸时224x224</p>
+<h3 id="_7">参数</h3>
+<ul>
+<li>include_top：是否保留顶层的3个全连接网络</li>
+<li>weights：None代表随机初始化，即不加载预训练权重。'imagenet'代表加载预训练权重</li>
+<li>input_tensor：可填入Keras tensor作为模型的图像输出tensor</li>
+<li>input_shape：可选，仅当<code>include_top=False</code>有效，应为长为3的tuple，指明输入图片的shape，图片的宽高必须大于48，如(200,200,3)</li>
+</ul>
+<h3 id="_8">返回值</h3>
+<ul>
+<li>classes：可选，图片分类的类别数，仅当<code>include_top=True</code>并且不加载预训练权重时可用。</li>
+</ul>
+<p>Keras 模型对象</p>
+<h3 id="_9">参考文献</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1409.1556"><font color='#FF0000'>Very Deep Convolutional Networks for Large-Scale Image Recognition</font></a>：如果在研究中使用了VGG，请引用该文</li>
+</ul>
+<h3 id="license_1">License</h3>
+<p>预训练权重由<a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/"><font color='#FF0000'>牛津VGG组</font></a>发布的预训练权重移植而来，基于<a href="https://creativecommons.org/licenses/by/4.0/"><font color='#FF0000'>Creative Commons Attribution License</font></a></p>
+<hr />
+<p><a name='vgg19'>
+<font color='#404040'></p>
+<h2 id="vgg19_1">VGG19模型</h2>
+<p></font>
+</a></p>
+<pre><code class="python">keras.applications.vgg19.VGG19(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, classes=1000)
+</code></pre>
+
+<p>VGG19模型,权重由ImageNet训练而来</p>
+<p>该模型再Theano和TensorFlow后端均可使用,并接受th和tf两种输入维度顺序</p>
+<p>模型的默认输入尺寸时224x224</p>
+<h3 id="_10">参数</h3>
+<ul>
+<li>include_top：是否保留顶层的3个全连接网络</li>
+<li>weights：None代表随机初始化，即不加载预训练权重。'imagenet'代表加载预训练权重</li>
+<li>input_tensor：可填入Keras tensor作为模型的图像输出tensor</li>
+<li>input_shape：可选，仅当<code>include_top=False</code>有效，应为长为3的tuple，指明输入图片的shape，图片的宽高必须大于48，如(200,200,3)</li>
+<li>classes：可选，图片分类的类别数，仅当<code>include_top=True</code>并且不加载预训练权重时可用。</li>
+</ul>
+<h3 id="_11">返回值</h3>
+<h3 id="_12">返回值</h3>
+<p>Keras 模型对象</p>
+<h3 id="_13">参考文献</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1409.1556"><font color='#FF0000'>Very Deep Convolutional Networks for Large-Scale Image Recognition</font></a>：如果在研究中使用了VGG，请引用该文</li>
+</ul>
+<h3 id="license_2">License</h3>
+<p>预训练权重由<a href="http://www.robots.ox.ac.uk/~vgg/research/very_deep/"><font color='#FF0000'>牛津VGG组</font></a>发布的预训练权重移植而来，基于<a href="https://creativecommons.org/licenses/by/4.0/"><font color='#FF0000'>Creative Commons Attribution License</font></a></p>
+<hr />
+<p><a name='resnet50'>
+<font color='#404040'></p>
+<h2 id="resnet50">ResNet50模型</h2>
+<p></font>
+</a></p>
+<pre><code class="python">keras.applications.resnet50.ResNet50(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, classes=1000)
+</code></pre>
+
+<p>50层残差网络模型,权重训练自ImageNet</p>
+<p>该模型再Theano和TensorFlow后端均可使用,并接受th和tf两种输入维度顺序</p>
+<p>模型的默认输入尺寸时224x224</p>
+<h3 id="_14">参数</h3>
+<ul>
+<li>include_top：是否保留顶层的全连接网络</li>
+<li>weights：None代表随机初始化，即不加载预训练权重。'imagenet'代表加载预训练权重</li>
+<li>input_tensor：可填入Keras tensor作为模型的图像输出tensor</li>
+<li>input_shape：可选，仅当<code>include_top=False</code>有效，应为长为3的tuple，指明输入图片的shape，图片的宽高必须大于197，如(200,200,3)</li>
+<li>classes：可选，图片分类的类别数，仅当<code>include_top=True</code>并且不加载预训练权重时可用。</li>
+</ul>
+<h3 id="_15">返回值</h3>
+<p>Keras 模型对象</p>
+<h3 id="_16">参考文献</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1512.03385"><font color='#FF0000'>Deep Residual Learning for Image Recognition</font></a>：如果在研究中使用了ResNet50，请引用该文</li>
+</ul>
+<h3 id="license_3">License</h3>
+<p>预训练权重由<a href="https://github.com/KaimingHe/deep-residual-networks"><font color='#FF0000'>Kaiming He</font></a>发布的预训练权重移植而来，基于<a href="https://github.com/KaimingHe/deep-residual-networks/blob/master/LICENSE"><font color='#FF0000'>MIT License</font></a></p>
+<hr />
+<p><a name='inceptionv3'>
+<font color='#404040'></p>
+<h2 id="inceptionv3">InceptionV3模型</h2>
+<p></font>
+</a></p>
+<pre><code class="python">keras.applications.inception_v3.InceptionV3(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, classes=1000)
+</code></pre>
+
+<p>InceptionV3网络,权重训练自ImageNet</p>
+<p>该模型再Theano和TensorFlow后端均可使用,并接受th和tf两种输入维度顺序</p>
+<p>模型的默认输入尺寸时299x299</p>
+<h3 id="_17">参数</h3>
+<ul>
+<li>include_top：是否保留顶层的全连接网络</li>
+<li>weights：None代表随机初始化，即不加载预训练权重。'imagenet'代表加载预训练权重</li>
+<li>input_tensor：可填入Keras tensor作为模型的图像输出tensor</li>
+<li>classes：可选，图片分类的类别数，仅当<code>include_top=True</code>并且不加载预训练权重时可用。</li>
+</ul>
+<h3 id="_18">返回值</h3>
+<p>Keras 模型对象</p>
+<h3 id="_19">参考文献</h3>
+<ul>
+<li><a href="http://arxiv.org/abs/1512.00567"><font color='#FF0000'>Rethinking the Inception Architecture for Computer Vision</font></a>：如果在研究中使用了InceptionV3，请引用该文</li>
+</ul>
+<h3 id="license_4">License</h3>
+<p>预训练权重由我们自己训练而来，基于<a href="https://github.com/KaimingHe/deep-residual-networks/blob/master/LICENSE"><font color='#FF0000'>MIT License</font></a></p>
+<hr />
+<p><a name='music'>
+<font color='#404040'></p>
+<h2 id="musictaggercrnn">MusicTaggerCRNN模型</h2>
+<p></font>
+</a></p>
+<pre><code class="python">keras.applications.music_tagger_crnn.MusicTaggerCRNN(weights='msd', input_tensor=None, include_top=True, classes=50)
+</code></pre>
+
+<p>该模型时一个卷积循环模型,以向量化的MelSpectrogram音乐数据为输入,能够输出音乐的风格. 你可以用<code>keras.applications.music_tagger_crnn.preprocess_input</code>来将一个音乐文件向量化为spectrogram.注意,使用该功能需要安装<a href="http://librosa.github.io/librosa/">Librosa</a>,请参考下面的使用范例.</p>
+<h3 id="_20">参数</h3>
+<ul>
+<li>include_top：是否保留顶层的1层全连接网络,若设置为False,则网络输出32维的特征</li>
+<li>weights：None代表随机初始化，即不加载预训练权重。'msd'代表加载预训练权重(训练自<a href="http://labrosa.ee.columbia.edu/millionsong/">Million Song Dataset</a>)</li>
+<li>input_tensor：可填入Keras tensor作为模型的输出tensor,如使用layer.input选用一层的输入张量为模型的输入张量.</li>
+</ul>
+<h3 id="_21">返回值</h3>
+<p>Keras 模型对象</p>
+<h3 id="_22">参考文献</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1609.04243"><font color='#FF0000'>Convolutional Recurrent Neural Networks for Music Classification</font></a></li>
+</ul>
+<h3 id="license_5">License</h3>
+<p>预训练权重由我们自己训练而来，基于<a href="https://github.com/KaimingHe/deep-residual-networks/blob/master/LICENSE"><font color='#FF0000'>MIT License</font></a></p>
+<h3 id="_23">使用范例:音乐特征抽取与风格标定</h3>
+<pre><code class="python">from keras.applications.music_tagger_crnn import MusicTaggerCRNN
+from keras.applications.music_tagger_crnn import preprocess_input, decode_predictions
+import numpy as np
+
+# 1. Tagging
+model = MusicTaggerCRNN(weights='msd')
+
+audio_path = 'audio_file.mp3'
+melgram = preprocess_input(audio_path)
+melgrams = np.expand_dims(melgram, axis=0)
+
+preds = model.predict(melgrams)
+print('Predicted:')
+print(decode_predictions(preds))
+# print: ('Predicted:', [[('rock', 0.097071797), ('pop', 0.042456303), ('alternative', 0.032439161), ('indie', 0.024491295), ('female vocalists', 0.016455274)]])
+
+#. 2. Feature extraction
+model = MusicTaggerCRNN(weights='msd', include_top=False)
+
+audio_path = 'audio_file.mp3'
+melgram = preprocess_input(audio_path)
+melgrams = np.expand_dims(melgram, axis=0)
+
+feats = model.predict(melgrams)
+print('Features:')
+print(feats[0, :10])
+# print: ('Features:', [-0.19160545 0.94259131 -0.9991011 0.47644514 -0.19089699 0.99033844 0.1103896 -0.00340496 0.14823607 0.59856361])
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../datasets/" class="btn btn-neutral float-right" title="常用数据库Dataset">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../constraints/" class="btn btn-neutral" title="约束项Constraint"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../constraints/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../datasets/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

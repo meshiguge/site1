@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>常用数据库Dataset - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5e38\u7528\u6570\u636e\u5e93Dataset";
+    var mkdocs_page_input_path = "other/datasets.md";
+    var mkdocs_page_url = "/other/datasets/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_linux/">Keras安装和配置指南(Linux)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/sequential_model/">快速开始Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/core_layer/">常用层Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/pooling_layer/">池化层Pooling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../optimizers/">优化器Optimizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../application/">预训练模型Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">常用数据库Dataset</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">常用数据库</a></li>
+                
+                    <li><a class="toctree-l4" href="#cifar10">CIFAR10 小图片分类数据集</a></li>
+                
+                    <li><a class="toctree-l4" href="#cifar100">CIFAR100 小图片分类数据库</a></li>
+                
+                    <li><a class="toctree-l4" href="#imdb">IMDB影评倾向分类</a></li>
+                
+                    <li><a class="toctree-l4" href="#_10">路透社新闻主题分类</a></li>
+                
+                    <li><a class="toctree-l4" href="#mnist">MNIST手写数字识别</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>其他重要模块 &raquo;</li>
+        
+      
+    
+    <li>常用数据库Dataset</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">常用数据库</h1>
+<h2 id="cifar10">CIFAR10 小图片分类数据集</h2>
+<p>该数据库具有50,000个32*32的彩色图片作为训练集，10,000个图片作为测试集。图片一共有10个类别。</p>
+<h3 id="_2">使用方法</h3>
+<pre><code class="python">from keras.datasets import cifar10
+
+(X_train, y_train), (X_test, y_test) = cifar10.load_data()
+</code></pre>
+
+<h3 id="_3">返回值：</h3>
+<p>两个Tuple</p>
+<p><code>X_train</code>和<code>X_test</code>是形如（nb_samples, 3, 32, 32）的RGB三通道图像数据，数据类型是无符号8位整形（uint8）</p>
+<p><code>Y_train</code>和 <code>Y_test</code>是形如（nb_samples,）标签数据，标签的范围是0~9</p>
+<hr />
+<h2 id="cifar100">CIFAR100 小图片分类数据库</h2>
+<p>该数据库具有50,000个32*32的彩色图片作为训练集，10,000个图片作为测试集。图片一共有100个类别，每个类别有600张图片。这100个类别又分为20个大类。</p>
+<h3 id="_4">使用方法</h3>
+<pre><code class="python">from keras.datasets import cifar100
+
+(X_train, y_train), (X_test, y_test) = cifar100.load_data(label_mode='fine')
+</code></pre>
+
+<h3 id="_5">参数</h3>
+<ul>
+<li>label_mode：为‘fine’或‘coarse’之一，控制标签的精细度，‘fine’获得的标签是100个小类的标签，‘coarse’获得的标签是大类的标签</li>
+</ul>
+<h3 id="_6">返回值</h3>
+<p>两个Tuple,<code>(X_train, y_train), (X_test, y_test)</code>，其中</p>
+<ul>
+<li>
+<p>X_train和X_test：是形如（nb_samples, 3, 32, 32）的RGB三通道图像数据，数据类型是无符号8位整形（uint8）</p>
+</li>
+<li>
+<p>y_train和y_test：是形如（nb_samples,）标签数据，标签的范围是0~9</p>
+</li>
+</ul>
+<hr />
+<h2 id="imdb">IMDB影评倾向分类</h2>
+<p>本数据库含有来自IMDB的25,000条影评，被标记为正面/负面两种评价。影评已被预处理为词下标构成的<a href="../../preprocessing/sequence"><font color='#FF0000'>序列</font></a>。方便起见，单词的下标基于它在数据集中出现的频率标定，例如整数3所编码的词为数据集中第3常出现的词。这样的组织方法使得用户可以快速完成诸如“只考虑最常出现的10,000个词，但不考虑最常出现的20个词”这样的操作</p>
+<p>按照惯例，0不代表任何特定的词，而用来编码任何未知单词</p>
+<h3 id="_7">使用方法</h3>
+<pre><code class="python">from keras.datasets import imdb
+
+(X_train, y_train), (X_test, y_test) = imdb.load_data(path=&quot;imdb_full.pkl&quot;,
+                                                      nb_words=None,
+                                                      skip_top=0,
+                                                      maxlen=None,
+                                                      test_split=0.1)
+                                                      seed=113,
+                                                      start_char=1,
+                                                      oov_char=2,
+                                                      index_from=3)
+</code></pre>
+
+<h3 id="_8">参数</h3>
+<ul>
+<li>
+<p>path：如果你在本机上已有此数据集（位于<code>'~/.keras/datasets/'+path</code>），则载入。否则数据将下载到该目录下</p>
+</li>
+<li>
+<p>nb_words：整数或None，要考虑的最常见的单词数，任何出现频率更低的单词将会被编码到0的位置。</p>
+</li>
+<li>
+<p>skip_top：整数，忽略最常出现的若干单词，这些单词将会被编码为0</p>
+</li>
+<li>
+<p>maxlen：整数，最大序列长度，任何长度大于此值的序列将被截断</p>
+</li>
+<li>
+<p>seed：整数，用于数据重排的随机数种子</p>
+</li>
+<li>
+<p>start_char：字符，序列的起始将以该字符标记，默认为1因为0通常用作padding</p>
+</li>
+<li>
+<p>oov_char：字符，因<code>nb_words</code>或<code>skip_top</code>限制而cut掉的单词将被该字符代替</p>
+</li>
+<li>
+<p>index_from：整数，真实的单词（而不是类似于<code>start_char</code>的特殊占位符）将从这个下标开始</p>
+</li>
+</ul>
+<h3 id="_9">返回值</h3>
+<p>两个Tuple,<code>(X_train, y_train), (X_test, y_test)</code>，其中</p>
+<ul>
+<li>
+<p>X_train和X_test：序列的列表，每个序列都是词下标的列表。如果指定了<code>nb_words</code>，则序列中可能的最大下标为<code>nb_words-1</code>。如果指定了<code>maxlen</code>，则序列的最大可能长度为<code>maxlen</code></p>
+</li>
+<li>
+<p>y_train和y_test：为序列的标签，是一个二值list</p>
+</li>
+</ul>
+<hr />
+<h2 id="_10">路透社新闻主题分类</h2>
+<p>本数据库包含来自路透社的11,228条新闻，分为了46个主题。与IMDB库一样，每条新闻被编码为一个词下标的序列。</p>
+<h3 id="_11">使用方法</h3>
+<pre><code class="python">from keras.datasets import reuters
+
+
+(X_train, y_train), (X_test, y_test) = reuters.load_data(path=&quot;reuters.pkl&quot;,
+                                                         nb_words=None,
+                                                         skip_top=0,
+                                                         maxlen=None,
+                                                         test_split=0.2,
+                                                         seed=113,
+                                                         start_char=1,
+                                                         oov_char=2,
+                                                         index_from=3)
+</code></pre>
+
+<p>参数的含义与IMDB同名参数相同，唯一多的参数是：
+<code>test_split</code>，用于指定从原数据中分割出作为测试集的比例。该数据库支持获取用于编码序列的词下标：</p>
+<pre><code class="python">word_index = reuters.get_word_index(path=&quot;reuters_word_index.pkl&quot;)
+</code></pre>
+
+<p>上面代码的返回值是一个以单词为关键字，以其下标为值的字典。例如，<code>word_index['giraffe']</code>的值可能为<code>1234</code></p>
+<p>数据库将会被下载到<code>'~/.keras/datasets/'+path</code></p>
+<hr />
+<h2 id="mnist">MNIST手写数字识别</h2>
+<p>本数据库有60,000个用于训练的28*28的灰度手写数字图片，10,000个测试图片</p>
+<h3 id="_12">使用方法</h3>
+<pre><code class="python">from keras.datasets import mnist
+
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+</code></pre>
+
+<h3 id="_13">返回值</h3>
+<p>两个Tuple,<code>(X_train, y_train), (X_test, y_test)</code>，其中</p>
+<ul>
+<li>
+<p>X_train和X_test：是形如（nb_samples, 28, 28）的灰度图片数据，数据类型是无符号8位整形（uint8）</p>
+</li>
+<li>
+<p>y_train和y_test：是形如（nb_samples,）标签数据，标签的范围是0~9</p>
+</li>
+</ul>
+<p>数据库将会被下载到<code>'~/.keras/datasets/'+path</code></p>
+<hr />
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../visualization/" class="btn btn-neutral float-right" title="可视化Visualization">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../application/" class="btn btn-neutral" title="预训练模型Application"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../application/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../visualization/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

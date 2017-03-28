@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Keras安装和配置指南(Linux) - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Keras\u5b89\u88c5\u548c\u914d\u7f6e\u6307\u5357(Linux)";
+    var mkdocs_page_input_path = "getting_started/keras_linux.md";
+    var mkdocs_page_url = "/getting_started/keras_linux/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Keras安装和配置指南(Linux)</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">声明</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">关于计算机的硬件配置说明</a></li>
+                
+                    <li><a class="toctree-l4" href="#_6">基本开发环境搭建</a></li>
+                
+                    <li><a class="toctree-l4" href="#keras">Keras框架搭建</a></li>
+                
+                    <li><a class="toctree-l4" href="#_8">加速测试</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../sequential_model/">快速开始Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/core_layer/">常用层Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/pooling_layer/">池化层Pooling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/optimizers/">优化器Optimizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/application/">预训练模型Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/datasets/">常用数据库Dataset</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>快速开始 &raquo;</li>
+        
+      
+    
+    <li>Keras安装和配置指南(Linux)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">声明</h1>
+<p><strong>本教程不得用于任何形式的商业用途，如果需要转载请与作者SCP-173联系，如果发现未经允许复制转载，将保留追求其法律责任的权利。</strong></p>
+<hr />
+<h2 id="_2">关于计算机的硬件配置说明</h2>
+<h3 id="_3">推荐配置</h3>
+<p>如果您是高校学生或者高级研究人员，并且实验室或者个人资金充沛，建议您采用如下配置：</p>
+<ul>
+<li>主板：X99型号或Z170型号</li>
+<li>CPU：i7-5830K或i7-6700K 及其以上高级型号</li>
+<li>内存：品牌内存，总容量32G以上，根据主板组成4通道或8通道</li>
+<li>SSD：品牌固态硬盘，容量256G以上</li>
+<li>显卡：<strong>NVIDIA GTX 1080 Ti、NVIDIA GTX 1080、NVIDIA GTX 1070、NVIDIA GTX 1060 (顺序为优先建议，并且建议同一显卡，可以根据主板插槽数量购买多块，例如X99型号主板最多可以采用×4的显卡)</strong></li>
+<li>电源：由主机机容量的确定，一般有显卡总容量后再加200W即可</li>
+</ul>
+<h3 id="_4">最低配置</h3>
+<p>如果您是仅仅用于自学或代码调试，亦或是条件所限仅采用自己现有的设备进行开发，那么您的电脑至少满足以下几点：</p>
+<ul>
+<li>CPU：Intel第三代i5和i7以上系列产品或同性能AMD公司产品</li>
+<li>内存：总容量4G以上</li>
+</ul>
+<h3 id="cpu">CPU说明</h3>
+<ul>
+<li>大多数CPU目前支持多核多线程，那么如果您采用CPU加速，就可以使用多线程运算。这方面的优势对于服务器CPU集群和多核并行CPU尤为关键</li>
+</ul>
+<h3 id="_5">显卡说明</h3>
+<ul>
+<li>如果您的显卡是非NVIDIA公司的产品或是NVIDIA GTX系列中型号的第一个数字低于4或NVIDIA的GT系列，都不建议您采用此类显卡进行加速计算，例如<code>NVIDIA GT 910</code>、<code>NVIDIA GTX 450</code> 等等。</li>
+<li>如果您的显卡为笔记本上的GTX移动显卡（型号后面带有标识M），那么请您慎重使用显卡加速，因为移动版GPU很容易发生过热烧毁现象。</li>
+<li>如果您的显卡，显示的是诸如 <code>HD5000</code>,<code>ATI 5650</code> 等类型的显卡，那么您只能使用CPU加速</li>
+<li>如果您的显卡为Pascal架构的显卡（<code>NVIDIA GTX 1080</code>,<code>NVIDIA GTX 1070</code>等），您只能在之后的配置中选择<code>CUDA 8.0</code></li>
+</ul>
+<hr />
+<h2 id="_6">基本开发环境搭建</h2>
+<h3 id="1-linux">1. Linux 发行版</h3>
+<p>linux有很多发行版，本文强烈建议读者采用新版的<code>Ubuntu 16.04 LTS</code>
+一方面，对于大多数新手来说Ubuntu具有很好的图形界面，与乐观的开源社区；另一方面，Ubuntu是Nvidia官方以及绝大多数深度学习框架默认开发环境。
+个人不建议使用Ubuntu Kylin，之前提出有部分信息表示，中国官方开发的这个版本有部分功能被“阉割”，你懂得。
+Ubuntu 16.04 LTS下载地址：</p>
+<p><a href="http://www.ubuntu.org.cn/download/desktop">http://www.ubuntu.org.cn/download/desktop</a></p>
+<p><img alt="keras_linux_ubuntu" src="../../images/keras_linux_ubuntu.png" /></p>
+<p>通过U盘安装好后，进行初始化环境设置。</p>
+<h3 id="2-ubuntu">2. Ubuntu初始环境设置</h3>
+<ul>
+<li>安装开发包
+打开<code>终端</code>输入：</li>
+</ul>
+<pre><code class="bash"># 系统升级
+&gt;&gt;&gt; sudo apt update
+&gt;&gt;&gt; sudo apt upgrade
+# 安装python基础开发包
+&gt;&gt;&gt; sudo apt install -y python-dev python-pip python-nose gcc g++ git gfortran vim
+</code></pre>
+
+<ul>
+<li>安装运算加速库
+打开<code>终端</code>输入：</li>
+</ul>
+<pre><code>&gt;&gt;&gt; sudo apt install -y libopenblas-dev liblapack-dev libatlas-base-dev
+</code></pre>
+
+<h3 id="3-cudacpu">3. CUDA开发环境的搭建(CPU加速跳过)</h3>
+<p><strong><em>如果您的仅仅采用cpu加速，可跳过此步骤</em></strong>
+- 下载CUDA8.0</p>
+<p>下载地址：</p>
+<p><a href="https://developer.nvidia.com/cuda-downloads">https://developer.nvidia.com/cuda-downloads</a>
+<img alt="keras_linux_cuda" src="../../images/keras_linux_cuda.png" /></p>
+<p>之后打开<code>终端</code>输入：</p>
+<pre><code>&gt;&gt;&gt; sudo dpkg -i cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64.deb
+&gt;&gt;&gt; sudo apt update
+&gt;&gt;&gt; sudo apt install cuda
+</code></pre>
+
+<p>自动配置成功就好。</p>
+<ul>
+<li>将CUDA路径添加至环境变量
+在<code>终端</code>输入：</li>
+</ul>
+<pre><code>&gt;&gt;&gt; sudo gedit /etc/bash.bashrc
+</code></pre>
+
+<p>在<code>bash.bashrc</code>文件中添加：</p>
+<pre><code class="bash">export CUDA_HOME=/usr/local/cuda-8.0
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+</code></pre>
+
+<p>之后<code>source gedit /etc/.bashrc</code>即可
+同样，在<code>终端</code>输入：</p>
+<pre><code>&gt;&gt;&gt; sudo gedit ~/.bashrc
+</code></pre>
+
+<p>在<code>.bashrc</code>中添加如上相同内容
+（如果您使用的是<code>zsh</code>，在<code>~/.zshrc</code>添加即可）</p>
+<ul>
+<li>测试
+在<code>终端</code>输入：</li>
+</ul>
+<pre><code>&gt;&gt;&gt; nvcc -V 
+</code></pre>
+
+<p>会得到相应的nvcc编译器相应的信息，那么CUDA配置成功了。
+记得重启系统</p>
+<h3 id="4-cudnn">4. 加速库cuDNN（可选）</h3>
+<p>从官网下载需要注册账号申请，两三天批准。网盘搜索一般也能找到最新版。 
+Linux目前就是cudnn-8.0-win-x64-v5.1-prod.zip。 
+下载解压出来是名为cuda的文件夹，里面有bin、include、lib，将三个文件夹复制到安装CUDA的地方覆盖对应文件夹，在终端中输入：</p>
+<pre><code class="shell">&gt;&gt;&gt; sudo cp include/cudnn.h /usr/local/cuda-8.0/include/
+&gt;&gt;&gt; sudo cp lib64/* /usr/local/cuda-8.0/lib64/
+</code></pre>
+
+<h2 id="keras">Keras框架搭建</h2>
+<h3 id="_7">相关开发包安装</h3>
+<p>在<code>终端</code>中输入:</p>
+<pre><code>&gt;&gt;&gt; sudo pip install -U --pre pip setuptools wheel
+&gt;&gt;&gt; sudo pip install -U --pre numpy scipy matplotlib scikit-learn scikit-image
+&gt;&gt;&gt; sudo pip install -U --pre theano
+&gt;&gt;&gt; sudo pip install -U --pre keras
+</code></pre>
+
+<p>安装完毕后，输入<code>python</code>，然后输入：</p>
+<pre><code class="python">&gt;&gt;&gt; import theano
+&gt;&gt;&gt; import keras
+</code></pre>
+
+<p>如果没有任何提示，则表明安装已经成功</p>
+<h3 id="keras_1">Keras环境设置</h3>
+<ul>
+<li>修改默认keras后端
+在<code>终端</code>中输入:</li>
+</ul>
+<pre><code class="shell">&gt;&gt;&gt; gedit ~/.keras/keras.json
+</code></pre>
+
+<ul>
+<li>配置theano文件
+在<code>终端</code>中输入:</li>
+</ul>
+<pre><code>&gt;&gt;&gt; gedit ~/.theanorc
+</code></pre>
+
+<p>并写入以下：</p>
+<pre><code>[global]
+openmp=False 
+device = gpu   
+floatX = float32  
+allow_input_downcast=True  
+[lib]
+cnmem = 0.8 
+[blas]
+ldflags= -lopenblas
+[nvcc]
+fastmath = True  
+</code></pre>
+
+<p>如果您的所安装的是CPU加速版本，那么<code>.theanorc</code>文件配置如下：</p>
+<pre><code>[global]
+openmp=True 
+device = cpu 
+floatX = float32  
+allow_input_downcast=True  
+[blas]
+ldflags= -lopenblas 
+</code></pre>
+
+<p>之后可以验证keras是否安装成功,在命令行中输入Python命令进入Python变成命令行环境：</p>
+<pre><code class="python">&gt;&gt;&gt;import keras
+</code></pre>
+
+<p>没有报错，并且会打印出关于显卡信息以及<code>cnmem</code>等信息（CPU版本没有）那么Keras就已经<strong>成功安装</strong>了。</p>
+<h2 id="_8">加速测试</h2>
+<h3 id="_9">速度测试</h3>
+<p>新建一个文件<code>test.py</code>，内容为：</p>
+<pre><code class="python">from theano import function, config, shared, sandbox
+import theano.tensor as T
+import numpy
+import time
+
+vlen = 10 * 30 * 768  # 10 x #cores x # threads per core  
+iters = 1000
+
+rng = numpy.random.RandomState(22)
+x = shared(numpy.asarray(rng.rand(vlen), config.floatX))
+f = function([], T.exp(x))
+print(f.maker.fgraph.toposort())
+t0 = time.time()
+for i in range(iters):
+    r = f()
+t1 = time.time()
+print(&quot;Looping %d times took %f seconds&quot; % (iters, t1 - t0))
+print(&quot;Result is %s&quot; % (r,))
+if numpy.any([isinstance(x.op, T.Elemwise) for x in f.maker.fgraph.toposort()]):
+    print('Used the cpu')
+else:
+    print('Used the gpu')
+</code></pre>
+
+<p>在GTX 970显卡下，输出结果大概是0.21秒，在一百倍运算量下19秒，可以进行对比。
+理论上，相比较主频为3.3GHz的CPU，加速比应该是75倍，但不同的ssd和内存限制了IO接口传输速度。</p>
+<h3 id="kerasmnist">Keras中mnist数据集测试</h3>
+<p>下载Keras开发包</p>
+<pre><code>git clone https://github.com/fchollet/keras.git
+cd keras/examples/
+python mnist_mlp.py
+</code></pre>
+
+<p>程序无错进行，至此，keras安装完成。</p>
+<h3 id="_10">声明与联系方式</h3>
+<p>由于作者水平和研究方向所限，无法对所有模块都非常精通，因此文档中不可避免的会出现各种错误、疏漏和不足之处。如果您在使用过程中有任何意见、建议和疑问，欢迎发送邮件到scp173.cool@gmail.com与作者取得联系.</p>
+<p><strong>本教程不得用于任何形式的商业用途，如果需要转载请与作者或中文文档作者联系，如果发现未经允许复制转载，将保留追求其法律责任的权利。</strong></p>
+<p>作者：<a href="https://github.com/KaiwenXiao">SCP-173</a>
+E-mail ：scp173.cool@gmail.com
+<strong>如果您需要及时得到指导帮助，可以加微信：SCP173-cool，酌情打赏即可</strong></p>
+<p><img alt="微信" src="../../images/scp_173.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../keras_windows/" class="btn btn-neutral float-right" title="Keras安装和配置指南(Windows)">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../concepts/" class="btn btn-neutral" title="一些基本概念"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../concepts/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../keras_windows/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

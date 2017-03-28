@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>快速开始Sequential模型 - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u5feb\u901f\u5f00\u59cbSequential\u6a21\u578b";
+    var mkdocs_page_input_path = "getting_started/sequential_model.md";
+    var mkdocs_page_url = "/getting_started/sequential_model/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../keras_linux/">Keras安装和配置指南(Linux)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">快速开始Sequential模型</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#sequential">快速开始Sequential模型</a></li>
+                
+                    <li><a class="toctree-l4" href="#shape">指定输入数据的shape</a></li>
+                
+                    <li><a class="toctree-l4" href="#merge">Merge层</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">编译</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">训练</a></li>
+                
+                    <li><a class="toctree-l4" href="#_3">例子</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/core_layer/">常用层Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/pooling_layer/">池化层Pooling</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../layers/writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/optimizers/">优化器Optimizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/application/">预训练模型Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/datasets/">常用数据库Dataset</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>快速开始 &raquo;</li>
+        
+      
+    
+    <li>快速开始Sequential模型</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sequential">快速开始Sequential模型</h1>
+<p><code>Sequential</code>是多个网络层的线性堆叠</p>
+<p>可以通过向<code>Sequential</code>模型传递一个layer的list来构造该模型：</p>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import Dense, Activation
+
+model = Sequential([
+Dense(32, input_dim=784),
+Activation('relu'),
+Dense(10),
+Activation('softmax'),
+])
+</code></pre>
+
+<p>也可以通过<code>.add()</code>方法一个个的将layer加入模型中：</p>
+<pre><code class="python">model = Sequential()
+model.add(Dense(32, input_dim=784))
+model.add(Activation('relu'))
+</code></pre>
+
+<hr />
+<h2 id="shape">指定输入数据的shape</h2>
+<p>模型需要知道输入数据的shape，因此，<code>Sequential</code>的第一层需要接受一个关于输入数据shape的参数，后面的各个层则可以自动的推导出中间数据的shape，因此不需要为每个层都指定这个参数。有几种方法来为第一层指定输入数据的shape</p>
+<ul>
+<li>
+<p>传递一个<code>input_shape</code>的关键字参数给第一层，<code>input_shape</code>是一个tuple类型的数据，其中也可以填入<code>None</code>，如果填入<code>None</code>则表示此位置可能是任何正整数。数据的batch大小不应包含在其中。</p>
+</li>
+<li>
+<p>传递一个<code>batch_input_shape</code>的关键字参数给第一层，该参数包含数据的batch大小。该参数在指定固定大小batch时比较有用，例如在stateful RNNs中。事实上，Keras在内部会通过添加一个None将input_shape转化为batch_input_shape</p>
+</li>
+<li>
+<p>有些2D层，如<code>Dense</code>，支持通过指定其输入维度<code>input_dim</code>来隐含的指定输入数据shape。一些3D的时域层支持通过参数<code>input_dim</code>和<code>input_length</code>来指定输入shape。</p>
+</li>
+</ul>
+<p>下面的三个指定输入数据shape的方法是严格等价的：</p>
+<pre><code class="python">model = Sequential()
+model.add(Dense(32, input_shape=(784,)))
+</code></pre>
+
+<pre><code class="python">model = Sequential()
+model.add(Dense(32, batch_input_shape=(None, 784)))
+# note that batch dimension is &quot;None&quot; here,
+# so the model will be able to process batches of any size.&lt;/pre&gt;
+</code></pre>
+
+<pre><code class="python">model = Sequential()
+model.add(Dense(32, input_dim=784))
+</code></pre>
+
+<p>下面三种方法也是严格等价的：</p>
+<pre><code class="python">model = Sequential()
+model.add(LSTM(32, input_shape=(10, 64)))
+</code></pre>
+
+<pre><code class="python">model = Sequential()
+model.add(LSTM(32, batch_input_shape=(None, 10, 64)))
+</code></pre>
+
+<pre><code class="python">model = Sequential()
+model.add(LSTM(32, input_length=10, input_dim=64))
+</code></pre>
+
+<hr />
+<h2 id="merge">Merge层</h2>
+<p>多个<code>Sequential</code>可经由一个Merge层合并到一个输出。Merge层的输出是一个可以被添加到新 <code>Sequential</code>的层对象。下面这个例子将两个Sequential合并到一起：</p>
+<pre><code class="python">from keras.layers import Merge
+
+left_branch = Sequential()
+left_branch.add(Dense(32, input_dim=784))
+
+right_branch = Sequential()
+right_branch.add(Dense(32, input_dim=784))
+
+merged = Merge([left_branch, right_branch], mode='concat')
+
+final_model = Sequential()
+final_model.add(merged)
+final_model.add(Dense(10, activation='softmax'))
+</code></pre>
+
+<p><img alt="two_branches_sequential_model" src="../../images/two_branches_sequential_model.png" /></p>
+<p>Merge层支持一些预定义的合并模式，包括：</p>
+<ul>
+<li><code>sum</code>(defualt):逐元素相加</li>
+<li><code>concat</code>:张量串联，可以通过提供<code>concat_axis</code>的关键字参数指定按照哪个轴进行串联</li>
+<li><code>mul</code>：逐元素相乘</li>
+<li><code>ave</code>：张量平均</li>
+<li><code>dot</code>：张量相乘，可以通过<code>dot_axis</code>关键字参数来指定要消去的轴</li>
+<li><code>cos</code>：计算2D张量（即矩阵）中各个向量的余弦距离</li>
+</ul>
+<p>这个两个分支的模型可以通过下面的代码训练:</p>
+<pre><code class="python">final_model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
+final_model.fit([input_data_1, input_data_2], targets)  # we pass one data array per model input
+</code></pre>
+
+<p>也可以为Merge层提供关键字参数<code>mode</code>，以实现任意的变换，例如：</p>
+<pre><code class="python">merged = Merge([left_branch, right_branch], mode=lambda x: x[0] - x[1])
+</code></pre>
+
+<p>现在你已经学会定义几乎任何Keras的模型了，对于不能通过Sequential和Merge组合生成的复杂模型，可以参考<a href="../functional_API/"><font color=#FF0000>泛型模型API</font></a></p>
+<hr />
+<h2 id="_1">编译</h2>
+<p>在训练模型之前，我们需要通过<code>compile</code>来对学习过程进行配置。<code>compile</code>接收三个参数：</p>
+<ul>
+<li>
+<p>优化器optimizer：该参数可指定为已预定义的优化器名，如<code>rmsprop</code>、<code>adagrad</code>，或一个<code>Optimizer</code>类的对象，详情见<a href="../../other/optimizers/"><font color=#FF0000>optimizers</font></a></p>
+</li>
+<li>
+<p>损失函数loss：该参数为模型试图最小化的目标函数，它可为预定义的损失函数名，如<code>categorical_crossentropy</code>、<code>mse</code>，也可以为一个损失函数。详情见<a href="../../other/objectives/"><font color=#FF0000>objectives</font></a></p>
+</li>
+<li>
+<p>指标列表metrics：对分类问题，我们一般将该列表设置为<code>metrics=['accuracy']</code>。指标可以是一个预定义指标的名字,也可以是一个用户定制的函数.指标函数应该返回单个张量,或一个完成<code>metric_name - &gt; metric_value</code>映射的字典.请参考<a href="../../other/metrices/">性能评估</a></p>
+</li>
+</ul>
+<pre><code class="python"># for a multi-class classification problem
+model.compile(optimizer='rmsprop',
+loss='categorical_crossentropy',
+metrics=['accuracy'])
+
+# for a binary classification problem
+model.compile(optimizer='rmsprop',
+loss='binary_crossentropy',
+metrics=['accuracy'])
+
+# for a mean squared error regression problem
+model.compile(optimizer='rmsprop',
+loss='mse')
+
+# for custom metrices
+
+
+# for custom metrics
+import keras.backend as K
+
+def mean_pred(y_true, y_pred):
+    return K.mean(y_pred)
+
+def false_rates(y_true, y_pred):
+    false_neg = ...
+    false_pos = ...
+    return {
+        'false_neg': false_neg,
+        'false_pos': false_pos,
+    }
+
+model.compile(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy', mean_pred, false_rates])
+</code></pre>
+
+<hr />
+<h2 id="_2">训练</h2>
+<p>Keras以Numpy数组作为输入数据和标签的数据类型。训练模型一般使用<code>fit</code>函数，该函数的详情见<a href="../../models/sequential/"><font color=#FF0000>这里</font></a>。下面是一些例子。</p>
+<pre><code class="python"># for a single-input model with 2 classes (binary):
+model = Sequential()
+model.add(Dense(1, input_dim=784, activation='sigmoid'))
+model.compile(optimizer='rmsprop',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+# generate dummy data
+import numpy as np
+data = np.random.random((1000, 784))
+labels = np.random.randint(2, size=(1000, 1))
+
+# train the model, iterating on the data in batches
+# of 32 samples
+model.fit(data, labels, nb_epoch=10, batch_size=32)
+</code></pre>
+
+<pre><code class="python"># for a multi-input model with 10 classes:
+
+left_branch = Sequential()
+left_branch.add(Dense(32, input_dim=784))
+
+right_branch = Sequential()
+right_branch.add(Dense(32, input_dim=784))
+
+merged = Merge([left_branch, right_branch], mode='concat')
+
+model = Sequential()
+model.add(merged)
+model.add(Dense(10, activation='softmax'))
+
+model.compile(optimizer='rmsprop',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# generate dummy data
+import numpy as np
+from keras.utils.np_utils import to_categorical
+data_1 = np.random.random((1000, 784))
+data_2 = np.random.random((1000, 784))
+
+# these are integers between 0 and 9
+labels = np.random.randint(10, size=(1000, 1))
+# we convert the labels to a binary matrix of size (1000, 10)
+# for use with categorical_crossentropy
+labels = to_categorical(labels, 10)
+
+# train the model
+# note that we are passing a list of Numpy arrays as training data
+# since the model has 2 inputs
+model.fit([data_1, data_2], labels, nb_epoch=10, batch_size=32)
+</code></pre>
+
+<hr />
+<h2 id="_3">例子</h2>
+<p>这里是一些帮助你开始的例子</p>
+<p>在Keras代码包的examples文件夹中，你将找到使用真实数据的示例模型：</p>
+<ul>
+<li>CIFAR10 小图片分类：使用CNN和实时数据提升</li>
+<li>IMDB 电影评论观点分类：使用LSTM处理成序列的词语</li>
+<li>Reuters（路透社）新闻主题分类：使用多层感知器（MLP）</li>
+<li>MNIST手写数字识别：使用多层感知器和CNN</li>
+<li>字符级文本生成：使用LSTM
+...</li>
+</ul>
+<h3 id="softmax">基于多层感知器的softmax多分类：</h3>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from keras.optimizers import SGD
+
+model = Sequential()
+# Dense(64) is a fully-connected layer with 64 hidden units.
+# in the first layer, you must specify the expected input data shape:
+# here, 20-dimensional vectors.
+model.add(Dense(64, input_dim=20, init='uniform'))
+model.add(Activation('tanh'))
+model.add(Dropout(0.5))
+model.add(Dense(64, init='uniform'))
+model.add(Activation('tanh'))
+model.add(Dropout(0.5))
+model.add(Dense(10, init='uniform'))
+model.add(Activation('softmax'))
+
+sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy',
+              optimizer=sgd,
+              metrics=['accuracy'])
+
+model.fit(X_train, y_train,
+          nb_epoch=20,
+          batch_size=16)
+score = model.evaluate(X_test, y_test, batch_size=16)   
+</code></pre>
+
+<h3 id="mlp">相似MLP的另一种实现：</h3>
+<pre><code class="python">model = Sequential()
+model.add(Dense(64, input_dim=20, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(10, activation='softmax'))
+
+model.compile(loss='categorical_crossentropy',
+              optimizer='adadelta',
+              metrics=['accuracy'])
+</code></pre>
+
+<h3 id="_4">用于二分类的多层感知器：</h3>
+<pre><code class="python">model = Sequential()
+model.add(Dense(64, input_dim=20, init='uniform', activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(64, activation='relu'))
+model.add(Dropout(0.5))
+model.add(Dense(1, activation='sigmoid'))
+
+model.compile(loss='binary_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+</code></pre>
+
+<h3 id="vgg">类似VGG的卷积神经网络：</h3>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation, Flatten
+from keras.layers import Convolution2D, MaxPooling2D
+from keras.optimizers import SGD
+
+model = Sequential()
+# input: 100x100 images with 3 channels -&gt; (3, 100, 100) tensors.
+# this applies 32 convolution filters of size 3x3 each.
+model.add(Convolution2D(32, 3, 3, border_mode='valid', input_shape=(3, 100, 100)))
+model.add(Activation('relu'))
+model.add(Convolution2D(32, 3, 3))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+
+model.add(Convolution2D(64, 3, 3, border_mode='valid'))
+model.add(Activation('relu'))
+model.add(Convolution2D(64, 3, 3))
+model.add(Activation('relu'))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Dropout(0.25))
+
+model.add(Flatten())
+# Note: Keras does automatic shape inference.
+model.add(Dense(256))
+model.add(Activation('relu'))
+model.add(Dropout(0.5))
+
+model.add(Dense(10))
+model.add(Activation('softmax'))
+
+sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss='categorical_crossentropy', optimizer=sgd)
+
+model.fit(X_train, Y_train, batch_size=32, nb_epoch=1)
+</code></pre>
+
+<h3 id="lstm">使用LSTM的序列分类</h3>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import Dense, Dropout, Activation
+from keras.layers import Embedding
+from keras.layers import LSTM
+
+model = Sequential()
+model.add(Embedding(max_features, 256, input_length=maxlen))
+model.add(LSTM(output_dim=128, activation='sigmoid', inner_activation='hard_sigmoid'))
+model.add(Dropout(0.5))
+model.add(Dense(1))
+model.add(Activation('sigmoid'))
+
+model.compile(loss='binary_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+model.fit(X_train, Y_train, batch_size=16, nb_epoch=10)
+score = model.evaluate(X_test, Y_test, batch_size=16)
+</code></pre>
+
+<h3 id="_5">使用带有门限的递归单元进行图像描述：</h3>
+<p>（单词级别嵌入，描述语句最多16个单词）</p>
+<p>注意，要使该网络良好工作需要更大规模的卷积神经网络并以预训练权重初始化，此处仅为结构示例。</p>
+<pre><code class="python">max_caption_len = 16
+vocab_size = 10000
+
+# first, let's define an image model that
+# will encode pictures into 128-dimensional vectors.
+# it should be initialized with pre-trained weights.
+image_model = Sequential()
+image_model.add(Convolution2D(32, 3, 3, border_mode='valid', input_shape=(3, 100, 100)))
+image_model.add(Activation('relu'))
+image_model.add(Convolution2D(32, 3, 3))
+image_model.add(Activation('relu'))
+image_model.add(MaxPooling2D(pool_size=(2, 2)))
+
+image_model.add(Convolution2D(64, 3, 3, border_mode='valid'))
+image_model.add(Activation('relu'))
+image_model.add(Convolution2D(64, 3, 3))
+image_model.add(Activation('relu'))
+image_model.add(MaxPooling2D(pool_size=(2, 2)))
+
+image_model.add(Flatten())
+image_model.add(Dense(128))
+
+# let's load the weights from a save file.
+image_model.load_weights('weight_file.h5')
+
+# next, let's define a RNN model that encodes sequences of words
+# into sequences of 128-dimensional word vectors.
+language_model = Sequential()
+language_model.add(Embedding(vocab_size, 256, input_length=max_caption_len))
+language_model.add(GRU(output_dim=128, return_sequences=True))
+language_model.add(TimeDistributed(Dense(128))
+
+# let's repeat the image vector to turn it into a sequence.
+image_model.add(RepeatVector(max_caption_len))
+
+# the output of both models will be tensors of shape (samples, max_caption_len, 128).
+# let's concatenate these 2 vector sequences.
+model = Sequential()
+model.add(Merge([image_model, language_model], mode='concat', concat_axis=-1))
+# let's encode this vector sequence into a single vector
+model.add(GRU(256, return_sequences=False))
+# which will be used to compute a probability
+# distribution over what the next word in the caption should be!
+model.add(Dense(vocab_size))
+model.add(Activation('softmax'))
+
+model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
+
+# &quot;images&quot; is a numpy float array of shape (nb_samples, nb_channels=3, width, height).
+# &quot;captions&quot; is a numpy integer array of shape (nb_samples, max_caption_len)
+# containing word index sequences representing partial captions.
+# &quot;next_words&quot; is a numpy float array of shape (nb_samples, vocab_size)
+# containing a categorical encoding (0s and 1s) of the next word in the corresponding
+# partial caption.
+model.fit([images, partial_captions], next_words, batch_size=16, nb_epoch=100)
+</code></pre>
+
+<h3 id="lstm_1">用于序列分类的栈式LSTM</h3>
+<p>在该模型中，我们将三个LSTM堆叠在一起，是该模型能够学习更高层次的时域特征表示。</p>
+<p>开始的两层LSTM返回其全部输出序列，而第三层LSTM只返回其输出序列的最后一步结果，从而其时域维度降低（即将输入序列转换为单个向量）</p>
+<p><img alt="regular_stacked_lstm" src="../../images/regular_stacked_lstm.png" /></p>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import LSTM, Dense
+import numpy as np
+
+data_dim = 16
+timesteps = 8
+nb_classes = 10
+
+# expected input data shape: (batch_size, timesteps, data_dim)
+model = Sequential()
+model.add(LSTM(32, return_sequences=True,
+               input_shape=(timesteps, data_dim)))  # returns a sequence of vectors of dimension 32
+model.add(LSTM(32, return_sequences=True))  # returns a sequence of vectors of dimension 32
+model.add(LSTM(32))  # return a single vector of dimension 32
+model.add(Dense(10, activation='softmax'))
+
+model.compile(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+# generate dummy training data
+x_train = np.random.random((1000, timesteps, data_dim))
+y_train = np.random.random((1000, nb_classes))
+
+# generate dummy validation data
+x_val = np.random.random((100, timesteps, data_dim))
+y_val = np.random.random((100, nb_classes))
+
+model.fit(x_train, y_train,
+          batch_size=64, nb_epoch=5,
+          validation_data=(x_val, y_val))
+</code></pre>
+
+<h3 id="lstm_2">采用状态LSTM的相同模型</h3>
+<p>状态（stateful）LSTM的特点是，在处理过一个batch的训练数据后，其内部状态（记忆）会被作为下一个batch的训练数据的初始状态。状态LSTM使得我们可以在合理的计算复杂度内处理较长序列</p>
+<p>请FAQ中关于<a href="../FAQ/"><font color=#FF0000>状态LSTM</font></a>的部分获取更多信息</p>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import LSTM, Dense
+import numpy as np
+
+data_dim = 16
+timesteps = 8
+nb_classes = 10
+batch_size = 32
+
+# expected input batch shape: (batch_size, timesteps, data_dim)
+# note that we have to provide the full batch_input_shape since the network is stateful.
+# the sample of index i in batch k is the follow-up for the sample i in batch k-1.
+model = Sequential()
+model.add(LSTM(32, return_sequences=True, stateful=True,
+               batch_input_shape=(batch_size, timesteps, data_dim)))
+model.add(LSTM(32, return_sequences=True, stateful=True))
+model.add(LSTM(32, stateful=True))
+model.add(Dense(10, activation='softmax'))
+
+model.compile(loss='categorical_crossentropy',
+              optimizer='rmsprop',
+              metrics=['accuracy'])
+
+# generate dummy training data
+x_train = np.random.random((batch_size * 10, timesteps, data_dim))
+y_train = np.random.random((batch_size * 10, nb_classes))
+
+# generate dummy validation data
+x_val = np.random.random((batch_size * 3, timesteps, data_dim))
+y_val = np.random.random((batch_size * 3, nb_classes))
+
+model.fit(x_train, y_train,
+          batch_size=batch_size, nb_epoch=5,
+          validation_data=(x_val, y_val))
+</code></pre>
+
+<h3 id="lstm_3">将两个LSTM合并作为编码端来处理两路序列的分类</h3>
+<p>在本模型中，两路输入序列通过两个LSTM被编码为特征向量</p>
+<p>两路特征向量被串连在一起，然后通过一个全连接网络得到结果，示意图如下：</p>
+<p><img alt="dual_lstm" src="../../images/dual_lstm.png" /></p>
+<pre><code class="python">from keras.models import Sequential
+from keras.layers import Merge, LSTM, Dense
+import numpy as np
+
+data_dim = 16
+timesteps = 8
+nb_classes = 10
+
+encoder_a = Sequential()
+encoder_a.add(LSTM(32, input_shape=(timesteps, data_dim)))
+
+encoder_b = Sequential()
+encoder_b.add(LSTM(32, input_shape=(timesteps, data_dim)))
+
+decoder = Sequential()
+decoder.add(Merge([encoder_a, encoder_b], mode='concat'))
+decoder.add(Dense(32, activation='relu'))
+decoder.add(Dense(nb_classes, activation='softmax'))
+
+decoder.compile(loss='categorical_crossentropy',
+                optimizer='rmsprop',
+                metrics=['accuracy'])
+
+# generate dummy training data
+x_train_a = np.random.random((1000, timesteps, data_dim))
+x_train_b = np.random.random((1000, timesteps, data_dim))
+y_train = np.random.random((1000, nb_classes))
+
+# generate dummy validation data
+x_val_a = np.random.random((100, timesteps, data_dim))
+x_val_b = np.random.random((100, timesteps, data_dim))
+y_val = np.random.random((100, nb_classes))
+
+decoder.fit([x_train_a, x_train_b], y_train,
+            batch_size=64, nb_epoch=5,
+            validation_data=([x_val_a, x_val_b], y_val))
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../functional_API/" class="btn btn-neutral float-right" title="快速开始泛型模型">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../keras_windows/" class="btn btn-neutral" title="Keras安装和配置指南(Windows)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../keras_windows/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../functional_API/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

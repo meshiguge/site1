@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="BigMoyan">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>池化层Pooling - Keras中文文档</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u6c60\u5316\u5c42Pooling";
+    var mkdocs_page_input_path = "layers/pooling_layer.md";
+    var mkdocs_page_url = "/layers/pooling_layer/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Keras中文文档</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">主页</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>快速开始</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/concepts/">一些基本概念</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_linux/">Keras安装和配置指南(Linux)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/keras_windows/">Keras安装和配置指南(Windows)</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/sequential_model/">快速开始Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/functional_API/">快速开始泛型模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/FAQ/">FAQ</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/trap/">Keras使用陷阱</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../getting_started/examples/">Keras示例列表</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>模型</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/about_model/">关于Keras模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/sequential/">Sequential模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../models/model/">泛型模型</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>网络层</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../about_layer/">关于Keras层</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../core_layer/">常用层Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../convolutional_layer/">卷积层Convolutional</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">池化层Pooling</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">池化层</a></li>
+                
+                    <li><a class="toctree-l4" href="#maxpooling1d">MaxPooling1D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#maxpooling2d">MaxPooling2D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#maxpooling3d">MaxPooling3D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#averagepooling1d">AveragePooling1D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#averagepooling2d">AveragePooling2D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#averagepooling3d">AveragePooling3D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#globalmaxpooling1d">GlobalMaxPooling1D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#globalaveragepooling1d">GlobalAveragePooling1D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#globalmaxpooling2d">GlobalMaxPooling2D层</a></li>
+                
+                    <li><a class="toctree-l4" href="#globalaveragepooling2d">GlobalAveragePooling2D层</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../locally_connected_layer/">局部连接层Locally-connented</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../recurrent_layer/">递归层Recurrent</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../embedding_layer/">嵌入层Embedding</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../advanced_activation_layer/">高级激活层Advanced Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../normalization_layer/">规范层BatchNormalization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../noise_layer/">噪声层Noise</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../wrapper/">包装器Wrapper</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../writting_layer/">编写自己的层</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>预处理</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/sequence/">序列预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/text/">文本预处理</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../preprocessing/image/">图片预处理</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>其他重要模块</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/objectives/">目标函数Objective</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/optimizers/">优化器Optimizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/activations/">激活函数Activation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/callbacks/">回调函数Callback</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/metrices/">性能评估Metrices</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/initializations/">初始化方法Initialization</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/regularizers/">正则项Regularizer</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/constraints/">约束项Constraint</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/application/">预训练模型Application</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/datasets/">常用数据库Dataset</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../other/visualization/">可视化Visualization</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../backend/">keras后端Backend</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../scikit-learn_API/">scikit-learn接口</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>工具</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/data_utils/">数据工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/io_utils/">输入输出I/O</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/layer_utils/">Keras层工具</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../utils/np_utils/">numpy工具</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>深度学习与Keras</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/cnn_see_world/">CNN眼中的世界</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/autoencoder/">花式自动编码器</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/image_classification_using_very_little_data/">面向小数据集构建图像分类模型</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/word_embedding/">在Keras模型中使用预训练的词向量</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../blog/keras_and_tensorflow/">将Keras作为tensorflow的精简接口</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../acknowledgement/">致谢</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Keras中文文档</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>网络层 &raquo;</li>
+        
+      
+    
+    <li>池化层Pooling</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">池化层</h1>
+<h2 id="maxpooling1d">MaxPooling1D层</h2>
+<pre><code class="python">keras.layers.convolutional.MaxPooling1D(pool_length=2, stride=None, border_mode='valid')
+</code></pre>
+
+<p>对时域1D信号进行最大值池化</p>
+<h3 id="_2">参数</h3>
+<ul>
+<li>
+<p>pool_length：下采样因子，如取2则将输入下采样到一半长度</p>
+</li>
+<li>
+<p>stride：整数或None，步长值</p>
+</li>
+<li>
+<p>border_mode：‘valid’或者‘same’</p>
+</li>
+</ul>
+<h3 id="shape">输入shape</h3>
+<ul>
+<li>形如（samples，steps，features）的3D张量</li>
+</ul>
+<h3 id="shape_1">输出shape</h3>
+<ul>
+<li>形如（samples，downsampled_steps，features）的3D张量</li>
+</ul>
+<hr />
+<h2 id="maxpooling2d">MaxPooling2D层</h2>
+<pre><code class="python">keras.layers.convolutional.MaxPooling2D(pool_size=(2, 2), strides=None, border_mode='valid', dim_ordering='th')
+</code></pre>
+
+<p>为空域信号施加最大值池化</p>
+<h3 id="_3">参数</h3>
+<ul>
+<li>
+<p>pool_size：长为2的整数tuple，代表在两个方向（竖直，水平）上的下采样因子，如取（2，2）将使图片在两个维度上均变为原长的一半</p>
+</li>
+<li>
+<p>strides：长为2的整数tuple，或者None，步长值。</p>
+</li>
+<li>
+<p>border_mode：‘valid’或者‘same’</p>
+</li>
+<li>
+<p>dim_ordering：‘th’或‘tf’。‘th’模式中通道维（如彩色图像的3通道）位于第1个位置（维度从0开始算），而在‘tf’模式中，通道维位于第3个位置。例如128*128的三通道彩色图片，在‘th’模式中<code>input_shape</code>应写为（3，128，128），而在‘tf’模式中应写为（128，128，3），注意这里3出现在第0个位置，因为<code>input_shape</code>不包含样本数的维度，在其内部实现中，实际上是（None，3，128，128）和（None，128，128，3）。默认是<code>image_dim_ordering</code>指定的模式，可在<code>~/.keras/keras.json</code>中查看，若没有设置过则为'tf'。</p>
+</li>
+</ul>
+<h3 id="shape_2">输入shape</h3>
+<p>‘th’模式下，为形如（samples，channels, rows，cols）的4D张量</p>
+<p>‘tf’模式下，为形如（samples，rows, cols，channels）的4D张量</p>
+<h3 id="shape_3">输出shape</h3>
+<p>‘th’模式下，为形如（samples，channels, pooled_rows, pooled_cols）的4D张量</p>
+<p>‘tf’模式下，为形如（samples，pooled_rows, pooled_cols，channels）的4D张量</p>
+<hr />
+<h2 id="maxpooling3d">MaxPooling3D层</h2>
+<pre><code class="python">keras.layers.convolutional.MaxPooling3D(pool_size=(2, 2, 2), strides=None, border_mode='valid', dim_ordering='th')
+</code></pre>
+
+<p>为3D信号（空域或时空域）施加最大值池化</p>
+<p>本层目前只能在使用Theano为后端时可用</p>
+<h3 id="_4">参数</h3>
+<ul>
+<li>
+<p>pool_size：长为3的整数tuple，代表在三个维度上的下采样因子，如取（2，2，2）将使信号在每个维度都变为原来的一半长。</p>
+</li>
+<li>
+<p>strides：长为3的整数tuple，或者None，步长值。</p>
+</li>
+<li>
+<p>border_mode：‘valid’或者‘same’</p>
+</li>
+<li>
+<p>dim_ordering：‘th’或‘tf’。‘th’模式中通道维（如彩色图像的3通道）位于第1个位置（维度从0开始算），而在‘tf’模式中，通道维位于第4个位置。默认是<code>image_dim_ordering</code>指定的模式，可在<code>~/.keras/keras.json</code>中查看，若没有设置过则为'tf'。</p>
+</li>
+</ul>
+<h3 id="shape_4">输入shape</h3>
+<p>‘th’模式下，为形如（samples, channels, len_pool_dim1, len_pool_dim2, len_pool_dim3）的5D张量</p>
+<p>‘tf’模式下，为形如（samples, len_pool_dim1, len_pool_dim2, len_pool_dim3，channels, ）的5D张量</p>
+<h3 id="shape_5">输出shape</h3>
+<p>‘th’模式下，为形如（samples, channels, pooled_dim1, pooled_dim2, pooled_dim3）的5D张量</p>
+<p>‘tf’模式下，为形如（samples, pooled_dim1, pooled_dim2, pooled_dim3,channels,）的5D张量</p>
+<hr />
+<h2 id="averagepooling1d">AveragePooling1D层</h2>
+<pre><code class="python">keras.layers.convolutional.AveragePooling1D(pool_length=2, stride=None, border_mode='valid')
+</code></pre>
+
+<p>对时域1D信号进行平均值池化</p>
+<h3 id="_5">参数</h3>
+<ul>
+<li>
+<p>pool_length：下采样因子，如取2则将输入下采样到一半长度</p>
+</li>
+<li>
+<p>stride：整数或None，步长值</p>
+</li>
+<li>
+<p>border_mode：‘valid’或者‘same’</p>
+<ul>
+<li>注意，目前‘same’模式只能在TensorFlow作为后端时使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="shape_6">输入shape</h3>
+<ul>
+<li>形如（samples，steps，features）的3D张量</li>
+</ul>
+<h3 id="shape_7">输出shape</h3>
+<ul>
+<li>形如（samples，downsampled_steps，features）的3D张量</li>
+</ul>
+<hr />
+<h2 id="averagepooling2d">AveragePooling2D层</h2>
+<pre><code class="python">keras.layers.convolutional.AveragePooling2D(pool_size=(2, 2), strides=None, border_mode='valid', dim_ordering='th')
+</code></pre>
+
+<p>为空域信号施加平均值池化</p>
+<h3 id="_6">参数</h3>
+<ul>
+<li>
+<p>pool_size：长为2的整数tuple，代表在两个方向（竖直，水平）上的下采样因子，如取（2，2）将使图片在两个维度上均变为原长的一半</p>
+</li>
+<li>
+<p>strides：长为2的整数tuple，或者None，步长值。</p>
+</li>
+<li>
+<p>border_mode：‘valid’或者‘same’</p>
+</li>
+</ul>
+<p>dim_ordering：‘th’或‘tf’。‘th’模式中通道维（如彩色图像的3通道）位于第1个位置（维度从0开始算），而在‘tf’模式中，通道维位于第3个位置。例如128*128的三通道彩色图片，在‘th’模式中<code>input_shape</code>应写为（3，128，128），而在‘tf’模式中应写为（128，128，3），注意这里3出现在第0个位置，因为<code>input_shape</code>不包含样本数的维度，在其内部实现中，实际上是（None，3，128，128）和（None，128，128，3）。默认是<code>image_dim_ordering</code>指定的模式，可在<code>~/.keras/keras.json</code>中查看，若没有设置过则为'tf'。</p>
+<h3 id="shape_8">输入shape</h3>
+<p>‘th’模式下，为形如（samples，channels, rows，cols）的4D张量</p>
+<p>‘tf’模式下，为形如（samples，rows, cols，channels）的4D张量</p>
+<h3 id="shape_9">输出shape</h3>
+<p>‘th’模式下，为形如（samples，channels, pooled_rows, pooled_cols）的4D张量</p>
+<p>‘tf’模式下，为形如（samples，pooled_rows, pooled_cols，channels）的4D张量</p>
+<hr />
+<h2 id="averagepooling3d">AveragePooling3D层</h2>
+<pre><code class="python">keras.layers.convolutional.AveragePooling3D(pool_size=(2, 2, 2), strides=None, border_mode='valid', dim_ordering='th')
+</code></pre>
+
+<p>为3D信号（空域或时空域）施加平均值池化</p>
+<p>本层目前只能在使用Theano为后端时可用</p>
+<h3 id="_7">参数</h3>
+<ul>
+<li>
+<p>pool_size：长为3的整数tuple，代表在三个维度上的下采样因子，如取（2，2，2）将使信号在每个维度都变为原来的一半长。</p>
+</li>
+<li>
+<p>strides：长为3的整数tuple，或者None，步长值。</p>
+</li>
+<li>
+<p>border_mode：‘valid’或者‘same’</p>
+</li>
+<li>
+<p>dim_ordering：dim_ordering：‘th’或‘tf’。‘th’模式中通道维（如彩色图像的3通道）位于第1个位置（维度从0开始算），而在‘tf’模式中，通道维位于第4个位置。默认是<code>image_dim_ordering</code>指定的模式，可在<code>~/.keras/keras.json</code>中查看，若没有设置过则为'tf'。</p>
+</li>
+</ul>
+<h3 id="shape_10">输入shape</h3>
+<p>‘th’模式下，为形如（samples, channels, len_pool_dim1, len_pool_dim2, len_pool_dim3）的5D张量</p>
+<p>‘tf’模式下，为形如（samples, len_pool_dim1, len_pool_dim2, len_pool_dim3，channels, ）的5D张量</p>
+<h3 id="shape_11">输出shape</h3>
+<p>‘th’模式下，为形如（samples, channels, pooled_dim1, pooled_dim2, pooled_dim3）的5D张量</p>
+<p>‘tf’模式下，为形如（samples, pooled_dim1, pooled_dim2, pooled_dim3,channels,）的5D张量</p>
+<hr />
+<h2 id="globalmaxpooling1d">GlobalMaxPooling1D层</h2>
+<pre><code class="python">keras.layers.pooling.GlobalMaxPooling1D()
+</code></pre>
+
+<p>对于时间信号的全局最大池化</p>
+<h3 id="shape_12">输入shape</h3>
+<ul>
+<li>形如（samples，steps，features）的3D张量</li>
+</ul>
+<h3 id="shape_13">输出shape</h3>
+<ul>
+<li>形如(samples, features)的2D张量</li>
+</ul>
+<hr />
+<h2 id="globalaveragepooling1d">GlobalAveragePooling1D层</h2>
+<pre><code class="python">keras.layers.pooling.GlobalAveragePooling1D()
+</code></pre>
+
+<p>为时域信号施加全局平均值池化</p>
+<h3 id="shape_14">输入shape</h3>
+<ul>
+<li>形如（samples，steps，features）的3D张量</li>
+</ul>
+<h3 id="shape_15">输出shape</h3>
+<ul>
+<li>形如(samples, features)的2D张量</li>
+</ul>
+<hr />
+<h2 id="globalmaxpooling2d">GlobalMaxPooling2D层</h2>
+<pre><code class="python">keras.layers.pooling.GlobalMaxPooling2D(dim_ordering='default')
+</code></pre>
+
+<p>为空域信号施加全局最大值池化</p>
+<h3 id="_8">参数</h3>
+<ul>
+<li>dim_ordering：‘th’或‘tf’。‘th’模式中通道维（如彩色图像的3通道）位于第1个位置（维度从0开始算），而在‘tf’模式中，通道维位于第3个位置。例如128*128的三通道彩色图片，在‘th’模式中<code>input_shape</code>应写为（3，128，128），而在‘tf’模式中应写为（128，128，3），注意这里3出现在第0个位置，因为<code>input_shape</code>不包含样本数的维度，在其内部实现中，实际上是（None，3，128，128）和（None，128，128，3）。默认是<code>image_dim_ordering</code>指定的模式，可在<code>~/.keras/keras.json</code>中查看，若没有设置过则为'tf'。</li>
+</ul>
+<h3 id="shape_16">输入shape</h3>
+<p>‘th’模式下，为形如（samples，channels, rows，cols）的4D张量</p>
+<p>‘tf’模式下，为形如（samples，rows, cols，channels）的4D张量</p>
+<h3 id="shape_17">输出shape</h3>
+<p>形如(nb_samples, channels)的2D张量</p>
+<hr />
+<h2 id="globalaveragepooling2d">GlobalAveragePooling2D层</h2>
+<pre><code class="python">keras.layers.pooling.GlobalAveragePooling2D(dim_ordering='default')
+</code></pre>
+
+<p>为空域信号施加全局平均值池化</p>
+<h3 id="_9">参数</h3>
+<ul>
+<li>dim_ordering：‘th’或‘tf’。‘th’模式中通道维（如彩色图像的3通道）位于第1个位置（维度从0开始算），而在‘tf’模式中，通道维位于第3个位置。例如128*128的三通道彩色图片，在‘th’模式中<code>input_shape</code>应写为（3，128，128），而在‘tf’模式中应写为（128，128，3），注意这里3出现在第0个位置，因为<code>input_shape</code>不包含样本数的维度，在其内部实现中，实际上是（None，3，128，128）和（None，128，128，3）。默认是<code>image_dim_ordering</code>指定的模式，可在<code>~/.keras/keras.json</code>中查看，若没有设置过则为'tf'。</li>
+</ul>
+<h3 id="shape_18">输入shape</h3>
+<p>‘th’模式下，为形如（samples，channels, rows，cols）的4D张量</p>
+<p>‘tf’模式下，为形如（samples，rows, cols，channels）的4D张量</p>
+<h3 id="shape_19">输出shape</h3>
+<p>形如(nb_samples, channels)的2D张量</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../locally_connected_layer/" class="btn btn-neutral float-right" title="局部连接层Locally-connented">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../convolutional_layer/" class="btn btn-neutral" title="卷积层Convolutional"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../convolutional_layer/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../locally_connected_layer/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

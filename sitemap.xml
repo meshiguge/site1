@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/getting_started/concepts/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/keras_linux/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/keras_windows/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/sequential_model/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/functional_API/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/FAQ/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/trap/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting_started/examples/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/models/about_model/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/models/sequential/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/models/model/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/layers/about_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/core_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/convolutional_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/pooling_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/locally_connected_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/recurrent_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/embedding_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/advanced_activation_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/normalization_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/noise_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/wrapper/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/layers/writting_layer/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/preprocessing/sequence/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/preprocessing/text/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/preprocessing/image/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/other/objectives/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/optimizers/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/activations/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/callbacks/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/metrices/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/initializations/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/regularizers/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/constraints/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/application/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/datasets/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/other/visualization/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/backend/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/scikit-learn_API/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>/utils/data_utils/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/utils/io_utils/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/utils/layer_utils/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/utils/np_utils/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/blog/cnn_see_world/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/blog/autoencoder/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/blog/image_classification_using_very_little_data/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/blog/word_embedding/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/blog/keras_and_tensorflow/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>/acknowledgement/</loc>
+     <lastmod>2017-03-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>
